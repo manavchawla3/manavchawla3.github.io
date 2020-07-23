@@ -6,6 +6,8 @@ if (process.env.NODE_ENV === "development") {
   dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 }
 
+console.log(__dirname);
+
 module.exports = {
   siteMetadata: {
     title: `Manav Chawla - RESUME`,
@@ -13,12 +15,14 @@ module.exports = {
     author: `@manavchawla3`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-resolve-src`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/static/images`,
       },
     },
     `gatsby-transformer-sharp`,
