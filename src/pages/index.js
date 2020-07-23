@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import Root from "../components/layout/Root";
-import Image from "../components/common/image";
+import Root from '../components/layout/Root';
 
 const IndexPage = () => <Root></Root>;
 

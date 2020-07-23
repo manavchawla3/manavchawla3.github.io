@@ -40,20 +40,19 @@ export default function Header() {
   ));
 
   return (
-    <div className="header row">
+    <nav className="navbar header row sticky-top">
       <div className="col-1"></div>
       <div className="col-10">
         <ul className="d-flex justify-content-around align-content-center">
           {navListItems}
         </ul>
       </div>
-
       <div
         id="darkMode"
         className="col-1 d-flex justify-content-center align-content-center"
       >
         <img onClick={onDarkModeClick} src="/icons/theme-light-dark.svg" />
       </div>
-    </div>
+    </nav>
   );
 }
