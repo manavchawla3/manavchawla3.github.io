@@ -1,0 +1,21 @@
+@import '_colors';
+
+$primary-color: #7777eb;
+$background-dark: #2e2f30;
+$background-light: $white;
+
+$active-anchor: $primary-color;
+$inactive-anchor: $medium-light-gray;
+$inactive-anchor-dark: $white;
+
+:root {
+  --primary-color: #{$primary-color};
+  --background: #{$background-light};
+  --active-anchor: #{$active-anchor};
+  --inactive-anchor: #{$inactive-anchor};
+}
+
+[data-theme='dark'] {
+  --background: #{$background-dark};
+  --inactive-anchor: #{$inactive-anchor-dark};
+}

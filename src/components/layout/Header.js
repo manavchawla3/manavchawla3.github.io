@@ -1,13 +1,58 @@
-import React from "react";
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+
+const covertToFragmentURL = text => text.toLowerCase().split(' ').join('-');
 
 export default function Header() {
+  const {
+    allContentfulNavBar: {
+      edges: [
+        {
+          node: { navAnchors }
+        }
+      ]
+    }
+  } = useStaticQuery(graphql`
+    {
+      allContentfulNavBar {
+        edges {
+          node {
+            navAnchors
+          }
+        }
+      }
+    }
+  `);
+
+  const onDarkModeClick = e => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  };
+
+  const navListItems = navAnchors.map(anchor => (
+    <li>
+      <a href={`#${covertToFragmentURL(anchor)}`}>{anchor}</a>
+    </li>
+  ));
+
   return (
-    <div className="d-flex px-0 px-sm-4 py-2">
-      <div className="flex-grow-1 font-mono font-weight-bold d-flex align-items-center"></div>
-      <div>
-        <ul className="d-flex align-items-center">
-          <li className="ml-3"></li>
+    <div className="header row">
+      <div className="col-1"></div>
+      <div className="col-10">
+        <ul className="d-flex justify-content-around align-content-center">
+          {navListItems}
         </ul>
+      </div>
+
+      <div
+        id="darkMode"
+        className="col-1 d-flex justify-content-center align-content-center"
+      >
+        <img onClick={onDarkModeClick} src="/icons/theme-light-dark.svg" />
       </div>
     </div>
   );

@@ -1,6 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Poppins:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-@import "variables/colors";
-@import "utilities/mixins";
+@import 'variables/theme';
 
-@import "base/reset";
+@import 'utilities/mixins';
+
+@import 'base/reset';
+
+@import '_root';
+@import '_header';
