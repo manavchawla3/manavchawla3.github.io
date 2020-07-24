@@ -10,11 +10,11 @@ export default function Home() {
     <div id="#home" className="home">
       <div className="d-flex flex-column justify-content-center">
         <span className="misc-content">I am</span>
-        <span className="name">Manav Chawla</span>
+        <span className="name mt-3">Manav Chawla</span>
       </div>
       <div className="d-flex flex-column justify-content-center pt-5">
         <span className="misc-content">I’m a</span>
-        <span className="role typewriter">Full Stack Developer</span>
+        <span className="role typewriter mt-3">Full Stack Developer</span>
       </div>
       <div className="d-flex flex-row pt-5 justify-content-center developer-icons">
         <Database className="mx-5" />
