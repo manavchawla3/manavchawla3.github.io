@@ -1,23 +1,27 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import Gmail from '../../../static/icons/gmail.svg';
+import Linkedin from '../../../static/icons/linkedin.svg';
+import Github from '../../../static/icons/github.svg';
+
 export default function SideNav() {
   return (
-    <nav className="">
+    <nav className="side-nav py-5">
       <ul>
-        <li className="nav-item">
+        <li className="nav-item py-4">
           <a className="nav-link">
-            <img src="icons/github.svg" />
+            <Gmail className="contact-icons" />
           </a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item py-4">
           <a className="nav-link">
-            <img src="icons/github.svg" />
+            <Linkedin className="contact-icons" />
           </a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item py-4">
           <a className="nav-link">
-            <img src="icons/github.svg" />
+            <Github className="contact-icons" />
           </a>
         </li>
       </ul>

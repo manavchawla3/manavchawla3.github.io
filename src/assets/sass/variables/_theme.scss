@@ -18,4 +18,11 @@ $inactive-anchor-dark: $white;
 [data-theme='dark'] {
   --background: #{$background-dark};
   --inactive-anchor: #{$inactive-anchor-dark};
+
+  /** Contact Icon SVGs **/
+  .contact-icons {
+    path {
+      fill: $white;
+    }
+  }
 }

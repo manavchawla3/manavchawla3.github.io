@@ -1,10 +1,16 @@
+/** Font Imports **/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+/** Themes and Variables **/
 @import 'variables/theme';
 
+/** Utilities **/
 @import 'utilities/mixins';
 
+/** Base CSS **/
 @import 'base/reset';
+@import 'base/base';
 
-@import '_root';
+/** Component CSS **/
 @import '_header';
+@import '_sidenav';
