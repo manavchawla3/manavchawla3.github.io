@@ -1,4 +1,8 @@
 body {
   background-color: var(--background) !important;
-  font-family: 'Roboto', sans-serif !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  cursor: pointer;
 }

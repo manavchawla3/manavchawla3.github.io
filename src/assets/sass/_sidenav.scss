@@ -2,3 +2,13 @@
   position: fixed;
   transform: translateY(-80px);
 }
+
+[data-theme='dark'] {
+  .side-nav {
+    .contact-icons {
+      path {
+        fill: $white;
+      }
+    }
+  }
+}

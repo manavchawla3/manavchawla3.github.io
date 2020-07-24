@@ -1,6 +1,9 @@
 @import '_colors';
 
 $primary-color: #7777eb;
+$primary-color-light: #f1f1fd;
+$seconday-color: $black;
+$tertiary-color: $light-black;
 $background-dark: #2e2f30;
 $background-light: $white;
 
@@ -10,6 +13,9 @@ $inactive-anchor-dark: $white;
 
 :root {
   --primary-color: #{$primary-color};
+  --primary-color-light: #{$primary-color-light};
+  --secondary-color: #{$seconday-color};
+  --tertiary-color: #{$tertiary-color};
   --background: #{$background-light};
   --active-anchor: #{$active-anchor};
   --inactive-anchor: #{$inactive-anchor};
@@ -17,12 +23,6 @@ $inactive-anchor-dark: $white;
 
 [data-theme='dark'] {
   --background: #{$background-dark};
+  --secondary-color: #{$white};
   --inactive-anchor: #{$inactive-anchor-dark};
-
-  /** Contact Icon SVGs **/
-  .contact-icons {
-    path {
-      fill: $white;
-    }
-  }
 }

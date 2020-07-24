@@ -1,0 +1,44 @@
+/*animated scroll arrow animation*/
+@mixin fade-move-down-mixin($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      transform: translate(#{$from}, -#{$to});
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(#{$from}, #{$to});
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes #{$name} {
+    0% {
+      -webkit-transform: translate(#{$from}, -#{$to});
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translate(#{$from}, #{$to});
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes fade_move_down {
+    0% {
+      -moz-transform: translate(#{$from}, -#{$to});
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -moz-transform: translate(#{$from}, #{$to});
+      opacity: 0;
+    }
+  }
+}

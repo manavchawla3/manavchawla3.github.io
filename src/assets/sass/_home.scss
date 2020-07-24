@@ -1,0 +1,86 @@
+@include fade-move-down-mixin('scroll_arrow_animation', 0, 6px);
+
+.home {
+  background-image: url('/images/home-background.png');
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+
+  .misc-content {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--tertiary-color);
+    text-align: center;
+  }
+
+  .name {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 40px;
+    color: var(--secondary-color);
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .role {
+    font-family: 'Fira Code', monospace;
+    font-size: 48px;
+    color: var(--primary-color);
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  .developer-icons {
+    svg {
+      .a {
+        fill: $primary-color-light;
+      }
+
+      .b {
+        fill: $primary-color;
+      }
+    }
+  }
+
+  .scroll-down-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    translate: -50% 50%;
+    background-color: $primary-color;
+    border-radius: 50%;
+
+    svg {
+      -webkit-animation: scroll_arrow_animation 2s ease-in-out infinite;
+      -moz-animation: scroll_arrow_animation 2s ease-in-out infinite;
+      animation: scroll_arrow_animation 2s ease-in-out infinite;
+      .a {
+        opacity: 0;
+      }
+
+      .c {
+        stroke-width: 0px;
+      }
+    }
+  }
+}
+
+/** Darh Theme Customization **/
+[data-theme='dark'] {
+  .home {
+    .developer-icons {
+      svg {
+        .a {
+          fill: $primary-color;
+        }
+
+        .b {
+          fill: $white;
+        }
+      }
+    }
+  }
+}

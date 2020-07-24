@@ -1,16 +1,21 @@
 /** Font Imports **/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap');
 
 /** Themes and Variables **/
 @import 'variables/theme';
-
-/** Utilities **/
-@import 'utilities/mixins';
 
 /** Base CSS **/
 @import 'base/reset';
 @import 'base/base';
 
+/** Utilities **/
+@import 'utilities/mixins';
+@import 'utilities/typewriter';
+@import 'utilities/animation';
+
 /** Component CSS **/
 @import '_header';
 @import '_sidenav';
+@import '_home';
