@@ -1,0 +1,130 @@
+.about {
+  .skill-assessment {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: var(--background-secondary);
+    border-radius: 5px;
+
+    .circular-progress {
+      .override-progress {
+        stroke: var(--circular-progress-primary);
+      }
+
+      .override-trail {
+        stroke: var(--circular-progress-secondary);
+      }
+
+      .override-progress-text {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        fill: var(--circular-progress-text) !important;
+        text-align: center;
+      }
+
+      .progress-label {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        color: var(--circular-progress-label);
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .about-details {
+    display: grid;
+    grid-template-columns: 33% auto;
+    margin-top: 50px;
+
+    .display-picture {
+      background-color: var(--background-secondary);
+      border-radius: 5px;
+      text-transform: uppercase;
+      padding: 2.5em 0.75em 0 0.75em;
+
+      .download-cv {
+        position: absolute;
+        bottom: 0.75em;
+        left: 50%;
+        translate: -50%;
+        width: 94%;
+        border-radius: 5px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: $white;
+        background-color: $primary-color;
+      }
+    }
+
+    .details {
+      padding-top: 12px;
+      padding-left: 95px;
+
+      .myContent-main {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 40px;
+        padding-bottom: 2.7em;
+        border-radius: 10px;
+        color: #4a4a4a;
+      }
+
+      .seperator {
+        width: 25%;
+        height: 5px;
+        border-bottom: 5px;
+        border-radius: 2px;
+        border: solid $primary-color;
+      }
+
+      .myContent-sub {
+        margin-top: 2.7em;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 40px;
+        color: $medium-light-gray;
+      }
+
+      .contact-details {
+        margin-top: 2.7em;
+
+        .contact-icons {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 400;
+          color: #4a4a4a;
+
+          span {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme='dark'] {
+  .about {
+    .details {
+      .myContent-main {
+        color: $white !important;
+      }
+      .myContent-sub {
+        color: $light-black !important;
+      }
+    }
+
+    .contact-details {
+      .contact-icons {
+        color: $white !important;
+
+        .a {
+          fill: $white !important;
+        }
+      }
+    }
+  }
+}

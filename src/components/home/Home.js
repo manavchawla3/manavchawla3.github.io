@@ -7,7 +7,7 @@ import Scroll_Down from '../../../static/icons/scroll_down.svg';
 
 export default function Home() {
   return (
-    <div id="#home" className="home">
+    <div id="#home" className="home section">
       <div className="d-flex flex-column justify-content-center">
         <span className="misc-content">I am</span>
         <span className="name mt-3">Manav Chawla</span>
