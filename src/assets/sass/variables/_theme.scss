@@ -16,13 +16,13 @@ $inactive-anchor-dark: $white;
   --primary-color-light: #{$primary-color-light};
   --secondary-color: #{$seconday-color};
   --tertiary-color: #{$tertiary-color};
-  --background: #{$background-light};
+  --background-primary: #{$background-light};
   --active-anchor: #{$active-anchor};
   --inactive-anchor: #{$inactive-anchor};
 }
 
 [data-theme='dark'] {
-  --background: #{$background-dark};
+  --background-primary: #{$background-dark};
   --secondary-color: #{$white};
   --inactive-anchor: #{$inactive-anchor-dark};
 }
