@@ -12,3 +12,11 @@
     }
   }
 }
+
+.nav-link:hover {
+  .contact-icons {
+    path {
+      fill: $primary-color !important;
+    }
+  }
+}

@@ -2,8 +2,10 @@
 
 $primary-color: #7777eb;
 $primary-color-light: #f1f1fd;
-$seconday-color: $black;
-$tertiary-color: $light-black;
+$seconday-color: #4a4a4a;
+$seconday-color-dark: $white;
+$tertiary-color: $medium-light-gray;
+$tertiary-color-dark: $light-black;
 $background-primary-dark: #2e2f30;
 $background-primary-light: $white;
 $background-secondary-dark: #222324;
@@ -24,15 +26,12 @@ $inactive-anchor-dark: $white;
   --inactive-anchor: #{$inactive-anchor};
   --circular-progress-primary: #{$primary-color};
   --circular-progress-secondary: #{$background-primary-dark};
-  --circular-progress-text: '#4a4a4a';
-  --circular-progress-label: #{$medium-light-gray};
 }
 
 [data-theme='dark'] {
   --background-primary: #{$background-primary-dark};
   --background-secondary: #{$background-secondary-dark};
-  --secondary-color: #{$white};
+  --secondary-color: #{$seconday-color-dark};
+  --tertiary-color: #{$tertiary-color-dark};
   --inactive-anchor: #{$inactive-anchor-dark};
-  --circular-progress-text: #{$white};
-  --circular-progress-label: #{$light-black};
 }

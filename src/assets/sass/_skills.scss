@@ -1,0 +1,48 @@
+.skills-section {
+  .skill-level {
+    margin-top: 100px;
+  }
+}
+
+.skill-set {
+  .set-name {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+  }
+
+  .set-values {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--tertiary-color);
+    flex-wrap: wrap;
+
+    div {
+      margin: 0 2.5em;
+    }
+
+    .skill-name {
+      margin-top: 4px;
+    }
+  }
+}
+
+.skill-icon {
+  circle.a {
+    fill: $primary-color;
+  }
+  path {
+    fill: $primary-color;
+  }
+}
+
+[data-theme='dark'] {
+  .skill-icon {
+    path {
+      fill: $white;
+    }
+  }
+}
