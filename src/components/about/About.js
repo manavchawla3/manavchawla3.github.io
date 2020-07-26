@@ -56,11 +56,9 @@ export default function About() {
     <div className="about section">
       <SkillAssessment />
       <div id="#about" className="about-details">
-        <div className="display-picture text-center position-relative">
+        <div className="display-picture text-center">
           <img src="images/dp.png" />
-          <a className="btn d-flex download-cv d-flex">
-            <span className="flex-grow-1">Download CV</span>
-          </a>
+          <a className="btn download-cv w-100">Download CV</a>
         </div>
         <div className="details">
           <div className="myContent-main">

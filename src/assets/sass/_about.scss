@@ -43,18 +43,20 @@
       text-transform: uppercase;
       padding: 2.5em 0.75em 0 0.75em;
 
+      img {
+        height: 100%;
+      }
+
       .download-cv {
-        position: absolute;
-        bottom: 0.75em;
-        left: 50%;
-        translate: -50%;
-        width: 94%;
         border-radius: 5px;
         font-family: 'Open Sans', sans-serif;
         font-weight: 600;
         font-size: 16px;
         color: $white;
         background-color: $primary-color;
+        padding-top: 0.75em;
+        padding-bottom: 0.75em;
+        transform: translateY(-135%);
       }
     }
 
