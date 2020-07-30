@@ -33,9 +33,25 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const testimonialsListItem = testimonials.map(testimonial => (
+    <li className="d-flex flex-column align-items-center testimonial-item">
+      <img className="profile" src={testimonial.profile} />
+      <span className="name">
+        {testimonial.firstName} {testimonial.lastName}
+      </span>
+      <span className="title">{testimonial.title}</span>
+      <div className="testimonial-content">
+        <span>{testimonial.testimonial}</span>
+      </div>
+      <span className="side-note">{testimonial.sideNote}</span>
+    </li>
+  ));
+
   return (
     <div id="#testimonial" className="testimonials section">
-      <Carousel className="carousel" testimonials={testimonials}></Carousel>
+      <ul>
+        <Carousel className="carousel" slides={testimonialsListItem}></Carousel>
+      </ul>
     </div>
   );
 }
