@@ -34,8 +34,14 @@ export default function SideNav() {
     )
   );
   return (
-    <nav className="side-nav py-5">
-      <ul>{socialNavs}</ul>
-    </nav>
+    <div className="row">
+      <div className="col-1"></div>
+      <div className="col-10"></div>
+      <div className="col-1 d-flex justify-content-center">
+        <nav className="side-nav py-5">
+          <ul>{socialNavs}</ul>
+        </nav>
+      </div>
+    </div>
   );
 }

@@ -11,7 +11,7 @@ const IndexPage = () => (
     <Home></Home>
     <About></About>
     <Skills></Skills>
-    <Testimonials></Testimonials>
+    <Testimonials layout="full"></Testimonials>
   </Root>
 );
 
