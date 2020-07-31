@@ -38,17 +38,20 @@ export default function ContactMe() {
       id="#contact-me"
       className="contact-me section d-flex justify-content-center"
     >
-      <div className="d-flex">
+      <div className="d-flex container">
         <div className="profile-links d-flex flex-column align-items-center">
-          <img className="profile-picture" src="images/gatsby-astronaut.png" />
+          <img
+            className="profile-picture"
+            src="images/contact_me_profile.png"
+          />
           <ul className="d-flex mt-3 social-links"> {socials} </ul>
         </div>
 
-        <div className="contact-form d-flex flex-column">
+        <div className="contact-form d-flex flex-column flex-grow-1">
           <span className="form-header text--uppercase">Contact Me</span>
           <form className="mt-3">
             <div className="d-flex">
-              <div className="form-group">
+              <div className="form-group flex-grow-1">
                 <input
                   type="text"
                   className="form-control"
@@ -56,7 +59,7 @@ export default function ContactMe() {
                   placeholder="Name"
                 />
               </div>
-              <div className="form-group ml-3">
+              <div className="form-group ml-3 flex-grow-1">
                 <input
                   type="email"
                   className="form-control"
