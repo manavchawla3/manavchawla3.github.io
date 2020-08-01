@@ -14,6 +14,8 @@ $background-tertiary-light: #222324;
 $background-tertiary-dark: #2e2f30;
 $background-input-light: #2e2f30;
 $background-input-dark: #222324;
+$background-footer-light: #2e2f30;
+$background-footer-dark: #222324;
 
 $active-anchor: $primary-color;
 $inactive-anchor: $medium-light-gray;
@@ -32,6 +34,7 @@ $inactive-anchor-dark: $white;
   --circular-progress-primary: #{$primary-color};
   --circular-progress-secondary: #{$background-primary-dark};
   --background-input: #{$background-input-light};
+  --background-footer: #{$background-footer-light};
 }
 
 [data-theme='dark'] {
@@ -42,4 +45,5 @@ $inactive-anchor-dark: $white;
   --tertiary-color: #{$tertiary-color-dark};
   --inactive-anchor: #{$inactive-anchor-dark};
   --background-input: #{$background-input-dark};
+  --background-footer: #{$background-footer-dark};
 }

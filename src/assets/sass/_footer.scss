@@ -1,0 +1,16 @@
+.footer {
+  padding: 12px 0;
+  background-color: var(--background-footer);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+}
+
+.nav-link:hover {
+  .designer-profile-icons {
+    path {
+      fill: $primary-color !important;
+    }
+  }
+}
