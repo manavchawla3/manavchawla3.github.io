@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import SkillAssessment from './SkillAssessment';
 import Gmail from '../../../static/icons/gmail.svg';
@@ -39,6 +40,19 @@ const contactInfoRight = [
 ];
 
 export default function About() {
+  const {
+    contentfulAsset: { file }
+  } = useStaticQuery(graphql`
+    {
+      contentfulAsset(title: { eq: "resume" }) {
+        file {
+          fileName
+          url
+        }
+      }
+    }
+  `);
+
   const contactListItems = contactInfo =>
     contactInfo.map(({ link, value, icon: Icon }, index) => (
       <li className={index > 0 ? 'mt-5' : ''}>
@@ -58,7 +72,14 @@ export default function About() {
       <div id="#about" className="about-details">
         <div className="display-picture text-center">
           <img src="images/dp.png" />
-          <a className="btn download-cv w-100">Download CV</a>
+          <a
+            target="_blank"
+            download={file.fileName}
+            href={file.url}
+            className="btn download-cv w-100"
+          >
+            Download CV
+          </a>
         </div>
         <div className="details">
           <div className="myContent-main">

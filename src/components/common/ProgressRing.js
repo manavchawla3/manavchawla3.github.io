@@ -11,7 +11,6 @@ export default class ProgressRing extends React.Component {
     };
 
     this.normalizedRadius = radius - strokeWidth * 2;
-    console.log(this.normalizedRadius);
     this.circumference = this.normalizedRadius * 2 * Math.PI;
   }
 
