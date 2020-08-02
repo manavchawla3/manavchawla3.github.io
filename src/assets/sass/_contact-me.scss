@@ -1,3 +1,29 @@
+@include keyframes('flipInX') {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: perspective(400px);
+    transform: perspective(400px);
+  }
+}
+
+.flipInX {
+  -webkit-backface-visibility: visible !important;
+  backface-visibility: visible !important;
+  -webkit-animation-name: flipInX;
+  animation-name: flipInX;
+}
+
+.alert {
+  animation: flipInX 0.5s ease-in;
+}
+
 .contact-me {
   background-color: var(--background-tertiary);
   padding-top: 100px;
@@ -55,5 +81,14 @@
       background-color: $primary-color;
       border: none;
     }
+  }
+
+  .spinner-border {
+    width: 1rem;
+    height: 1rem;
+    border: 0.1em solid currentColor;
+    border-right-color: transparent;
+    vertical-align: middle;
+    margin-right: 0.5em;
   }
 }

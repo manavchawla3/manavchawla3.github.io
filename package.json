@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Manav Chawla",
   "dependencies": {
+    "animate.css": "^4.1.0",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.23.12",

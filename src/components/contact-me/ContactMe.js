@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ContactForm from './ContactForm';
+
 import Gmail from '../../../static/icons/gmail.svg';
 import Linkedin from '../../../static/icons/linkedin.svg';
 import Github from '../../../static/icons/github.svg';
@@ -48,48 +50,8 @@ export default function ContactMe() {
         </div>
 
         <div className="contact-form d-flex flex-column flex-grow-1">
-          <span className="form-header text--uppercase">Contact Me</span>
-          <form className="mt-3">
-            <div className="d-flex">
-              <div className="form-group flex-grow-1">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  placeholder="Name"
-                />
-              </div>
-              <div className="form-group ml-3 flex-grow-1">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  placeholder="Email"
-                />
-              </div>
-            </div>
-            <div className="form-group mt-3">
-              <input
-                type="text"
-                className="form-control"
-                id="subject"
-                placeholder="Subject"
-              />
-            </div>
-            <div className="form-group mt-3">
-              <textarea
-                class="form-control"
-                id="message"
-                placeholder="Message"
-                rows="5"
-              />
-            </div>
-            <div className="d-flex mt-3 flex-row-reverse">
-              <button type="submit" className="btn btn-primary align-items-end">
-                Send Message
-              </button>
-            </div>
-          </form>
+          <span className="form-header text--uppercase mb-3">Contact Me</span>
+          <ContactForm className="mt-3"></ContactForm>
         </div>
       </div>
     </div>

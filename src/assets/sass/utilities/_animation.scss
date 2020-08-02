@@ -28,7 +28,7 @@
     }
   }
 
-  @-moz-keyframes fade_move_down {
+  @-moz-keyframes #{$name} {
     0% {
       -moz-transform: translate(#{$from}, -#{$to});
       opacity: 0;
