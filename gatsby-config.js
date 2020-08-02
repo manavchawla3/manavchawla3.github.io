@@ -6,8 +6,6 @@ if (process.env.NODE_ENV === 'development') {
   dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 }
 
-console.log(__dirname);
-
 module.exports = {
   siteMetadata: {
     title: `Manav Chawla - RESUME`,
