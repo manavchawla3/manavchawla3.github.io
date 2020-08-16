@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 const covertToFragmentURL = text => text.toLowerCase().split(' ').join('-');
 
@@ -35,7 +36,9 @@ export default function Header() {
 
   const navListItems = navAnchors.map(anchor => (
     <li>
-      <a href={`#${covertToFragmentURL(anchor)}`}>{anchor}</a>
+      <AnchorLink className="nav-link" to={`/#${covertToFragmentURL(anchor)}`}>
+        {anchor}
+      </AnchorLink>
     </li>
   ));
 

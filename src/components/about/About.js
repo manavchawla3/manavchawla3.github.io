@@ -69,7 +69,7 @@ export default function About() {
   return (
     <div className="about section">
       <SkillAssessment />
-      <div id="#about" className="about-details">
+      <div id="about" className="about-details">
         <div className="display-picture text-center">
           <img src="images/dp.png" />
           <a

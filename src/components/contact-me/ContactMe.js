@@ -37,7 +37,7 @@ export default function ContactMe() {
 
   return (
     <div
-      id="#contact-me"
+      id="contact-me"
       className="contact-me section d-flex justify-content-center"
     >
       <div className="d-flex container">

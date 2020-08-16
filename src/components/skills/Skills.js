@@ -78,7 +78,7 @@ export default function Skills() {
     </div>
   ));
   return (
-    <div id="#skills" className="skills-section section">
+    <div id="skills" className="skills-section section">
       {skillLevels}
     </div>
   );
