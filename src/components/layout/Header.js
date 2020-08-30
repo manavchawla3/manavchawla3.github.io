@@ -36,7 +36,10 @@ export default function Header() {
 
   const navListItems = navAnchors.map(anchor => (
     <li>
-      <AnchorLink className="nav-link" to={`/#${covertToFragmentURL(anchor)}`}>
+      <AnchorLink
+        className="nav-link underline-from-left"
+        to={`/#${covertToFragmentURL(anchor)}`}
+      >
         {anchor}
       </AnchorLink>
     </li>

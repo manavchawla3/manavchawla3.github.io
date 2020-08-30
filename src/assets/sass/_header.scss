@@ -16,15 +16,41 @@
     &:hover {
       color: var(--primary-color);
       text-decoration: none;
-      border-bottom: 2px solid $primary-color;
-      border-radius: 1px 0px;
     }
 
     &.active {
       color: var(--primary-color);
       text-decoration: none;
-      border-bottom: 2px solid $primary-color;
-      border-radius: 1px 0px;
+    }
+  }
+
+  .underline-from-left {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      background: var(--primary-color);
+      height: 3px;
+      border-radius: 10% 0px;
+      -webkit-transition-property: right;
+      transition-property: right;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+    &:hover:before {
+      right: 0;
     }
   }
 
