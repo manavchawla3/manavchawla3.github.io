@@ -160,7 +160,7 @@ export default class ContactForm extends React.Component {
           </div>
           <div className="form-group mt-3">
             <textarea
-              class="form-control"
+              className="form-control"
               name="message"
               placeholder="Message"
               rows="5"
