@@ -21,6 +21,9 @@ $active-anchor: $primary-color;
 $inactive-anchor: $medium-light-gray;
 $inactive-anchor-dark: $white;
 
+$timeline-line-light: #f1f1fd;
+$timeline-line-dark: #222324;
+
 :root {
   --primary-color: #{$primary-color};
   --primary-color-light: #{$primary-color-light};
@@ -35,6 +38,7 @@ $inactive-anchor-dark: $white;
   --circular-progress-secondary: #{$background-primary-dark};
   --background-input: #{$background-input-light};
   --background-footer: #{$background-footer-light};
+  --timeline-line-color: #{$timeline-line-light};
 }
 
 [data-theme='dark'] {
@@ -46,4 +50,5 @@ $inactive-anchor-dark: $white;
   --inactive-anchor: #{$inactive-anchor-dark};
   --background-input: #{$background-input-dark};
   --background-footer: #{$background-footer-dark};
+  --timeline-line-color: #{$timeline-line-dark};
 }

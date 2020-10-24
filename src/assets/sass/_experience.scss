@@ -1,0 +1,134 @@
+.experience {
+  .vertical-timeline {
+    padding: 0;
+    //TimeLine-line
+    &::before {
+      background-color: var(--timeline-line-color);
+    }
+
+    .vertical-timeline-element {
+      //Timeline milestone icon
+      .vertical-timeline-element-icon {
+        box-shadow: none;
+        margin-top: -18px;
+      }
+      //TimeLine Content And Card
+      .vertical-timeline-element-content {
+        box-shadow: none;
+        padding: 0 !important;
+        background-color: transparent;
+
+        //milestone date
+        .timeline-element-date {
+          color: var(--secondary-color);
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 700;
+          font-size: 14px;
+
+          .present {
+            color: var(--primary-color);
+          }
+        }
+
+        .timeline-element-info {
+          .summary {
+            font-size: 14px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            color: $medium-light-gray;
+          }
+        }
+
+        .vertical-timeline-element-content-arrow {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(2n + 1) {
+        .timeline-element-date {
+          text-align: end;
+        }
+      }
+    }
+
+    .vertical-timeline-element--no-children {
+      margin: 0 !important;
+    }
+
+    .vertical-timeline-element-header {
+      margin-top: 128px !important;
+      margin-bottom: 0px !important;
+      .header-text-container {
+        position: relative;
+
+        .header-text {
+          z-index: 101;
+          color: $primary-color;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          font-size: 18px;
+        }
+
+        .header-text-background {
+          z-index: 100;
+          position: absolute;
+          color: $medium-light-gray;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          font-size: 40px;
+          opacity: 10%;
+          bottom: -8px;
+          left: -8px;
+        }
+      }
+    }
+  }
+
+  .workEx-Header.header-text-container {
+    position: relative;
+    margin-bottom: 64px;
+    .header-text {
+      z-index: 101;
+      color: $primary-color;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .header-text-background {
+      z-index: 100;
+      position: absolute;
+      color: $medium-light-gray;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+      font-size: 40px;
+      opacity: 10%;
+      bottom: -8px;
+      left: -8px;
+    }
+  }
+
+  .end-tag {
+    .vertical-timeline-element-icon {
+      // transform: translateY(-50%) !important;
+      svg {
+        .b-tag {
+          fill: $gray !important;
+        }
+      }
+    }
+  }
+}
+
+/** Darh Theme Customization **/
+[data-theme='dark'] {
+  .experience {
+    .vertical-timeline-element-content {
+      .timeline-element-info {
+        .summary {
+          color: $white !important;
+        }
+      }
+    }
+  }
+}

@@ -34,6 +34,8 @@ export default function Header() {
     }
   };
 
+  onDarkModeClick();
+
   const navListItems = navAnchors.map(anchor => (
     <li>
       <AnchorLink
