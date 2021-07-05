@@ -19,7 +19,7 @@ const socialLinks = [
 export default function Footer() {
   const socials = socialLinks.map(
     ({ socialName, socialLink, socialIcon: Icon }) => (
-      <li className="nav-item ml-4 ml-md-5 d-flex align-items-center">
+      <li key={socialName} className="nav-item ml-4 ml-md-5 d-flex align-items-center">
         <a className="nav-link" target="blank" href={socialLink}>
           <Icon className="designer-profile-icons" />
         </a>

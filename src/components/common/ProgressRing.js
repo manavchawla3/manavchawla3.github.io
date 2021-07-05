@@ -4,7 +4,7 @@ export default class ProgressRing extends React.Component {
   constructor(props) {
     super(props);
 
-    const { radius, strokeWidth, progress } = this.props;
+    const { radius, strokeWidth } = this.props;
 
     this.state = {
       progress: 0
@@ -38,7 +38,7 @@ export default class ProgressRing extends React.Component {
           className="override-trail"
           stroke={trailColor}
           fill="transparent"
-          stroke-width={strokeWidth}
+          strokeWidth={strokeWidth}
           r={this.normalizedRadius}
           cx={radius}
           cy={radius}
@@ -50,7 +50,7 @@ export default class ProgressRing extends React.Component {
           fill="transparent"
           strokeDasharray={this.circumference + ' ' + this.circumference}
           style={{ strokeDashoffset }}
-          stroke-width={strokeWidth}
+          strokeWidth={strokeWidth}
           r={this.normalizedRadius}
           transform={`rotate(-90 ${radius} ${radius})`}
           cx={radius}
@@ -61,7 +61,7 @@ export default class ProgressRing extends React.Component {
           className="override-progress-text"
           x="50%"
           y="50%"
-          text-anchor="middle"
+          textAnchor="middle"
           dy=".3em"
           dx=".2em"
         >

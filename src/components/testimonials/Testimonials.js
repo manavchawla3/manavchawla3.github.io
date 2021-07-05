@@ -24,8 +24,8 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const testimonialsListItem = testimonials.map(testimonial => (
-    <li className="d-flex flex-column align-items-center testimonial-item">
+  const testimonialsListItem = testimonials.map((testimonial, index) => (
+    <li key={index} className="d-flex flex-column align-items-center testimonial-item">
       <img className="profile" alt={testimonial.firstName} src={testimonial.profile} />
       <span className="name">
         {testimonial.firstName} {testimonial.lastName}

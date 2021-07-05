@@ -10,8 +10,8 @@ const skillAssessmentData = [
 ];
 
 export default function SkillAssessment() {
-  const skillProgress = skillAssessmentData.map(skillProgress => (
-    <div className="circular-progress d-flex flex-column align-items-center">
+  const skillProgress = skillAssessmentData.map((skillProgress, index) => (
+    <div key={index} className="circular-progress d-flex flex-column align-items-center">
       <ProgressRing
         radius={65}
         strokeWidth={10}

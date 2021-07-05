@@ -15,15 +15,15 @@ export default function TimeLine(props) {
 
   const renderKeyPoints = keyPoints => (
     <ul>
-      {keyPoints.map(point => (
-        <li>{point}</li>
+      {keyPoints.map((point, index) => (
+        <li key={index}>{point}</li>
       ))}
     </ul>
   );
 
   const renderSkills = skills => {
-    return skills.map(({ name, icon: Icon }) => (
-      <span className="card-icons">{<Icon />}</span>
+    return skills.map(({ name, icon: Icon }, index) => (
+      <span key={index} className="card-icons">{<Icon />}</span>
     ));
   };
 
@@ -50,9 +50,8 @@ export default function TimeLine(props) {
       {/* Card Body */}
       {content || keyPoints.length ? (
         <div
-          className={`card-body ${
-            description ? 'margin-top-16' : 'margin-top-40'
-          }`}
+          className={`card-body ${description ? 'margin-top-16' : 'margin-top-40'
+            }`}
         >
           {content ? <div className="content">{content}</div> : <></>}
           {keyPoints.length ? (
@@ -69,9 +68,8 @@ export default function TimeLine(props) {
       {/* Card Footer */}
       {skills.length ? (
         <div
-          className={`card-footer d-flex justify-content-between ${
-            keyPoints.length ? 'margin-top-16' : 'margin-top-40'
-          }`}
+          className={`card-footer d-flex justify-content-between ${keyPoints.length ? 'margin-top-16' : 'margin-top-40'
+            }`}
         >
           {renderSkills(skills)}
         </div>

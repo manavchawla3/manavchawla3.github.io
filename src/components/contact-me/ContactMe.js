@@ -27,7 +27,7 @@ const socialLinks = [
 export default function ContactMe() {
   const socials = socialLinks.map(
     ({ socialName, socialLink, socialIcon: Icon }) => (
-      <li className="nav-item">
+      <li key={socialName} className="nav-item">
         <a className="nav-link" target="blank" href={socialLink}>
           <Icon className="contact-icons" />
         </a>
@@ -45,7 +45,7 @@ export default function ContactMe() {
           <img
             className="profile-picture"
             src="images/contact_me_profile.png"
-            alt="Profile Image"
+            alt="Profile"
           />
           <ul className="d-flex mt-3 social-links"> {socials} </ul>
         </div>

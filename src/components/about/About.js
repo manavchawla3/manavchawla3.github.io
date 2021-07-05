@@ -55,10 +55,11 @@ export default function About() {
 
   const contactListItems = contactInfo =>
     contactInfo.map(({ link, value, icon: Icon }, index) => (
-      <li className={` mt-4 ${index > 0 ? 'mt-md-5' : 'mt-md-0'}`}>
+      <li key={index} className={` mt-4 ${index > 0 ? 'mt-md-5' : 'mt-md-0'}`}>
         <a
           className="d-flex align-items-center contact-icons"
           target="_blank"
+          rel="noreferrer"
           href={link}
         >
           <Icon />
@@ -71,9 +72,10 @@ export default function About() {
       <SkillAssessment />
       <div id="about" className="about-details">
         <div className="display-picture text-center">
-          <img src="images/dp.png" />
+          <img src="images/dp.png" alt="display_picture"/>
           <a
             target="_blank"
+            rel="noreferrer"
             download={file.fileName}
             href={file.url}
             className="btn download-cv w-100"

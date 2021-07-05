@@ -10,12 +10,12 @@ import ContactMe from '../components/contact-me/ContactMe';
 
 const IndexPage = () => (
   <Root>
-    <Home></Home>
-    <About></About>
-    <Skills></Skills>
-    <Experience></Experience>
-    <Testimonials layout="full"></Testimonials>
-    <ContactMe layout="full"></ContactMe>
+    <Home name="home"></Home>
+    <About name="about"></About>
+    <Skills name="skills"></Skills>
+    <Experience name="experience"></Experience>
+    <Testimonials name="testimonials" layout="full"></Testimonials>
+    <ContactMe name="contact_me" layout="full"></ContactMe>
   </Root>
 );
 

@@ -24,7 +24,7 @@ const socialLinks = [
 export default function SideNav() {
   const socialNavs = socialLinks.map(
     ({ socialName, socialLink, socialIcon: Icon }) => (
-      <li>
+      <li key={socialName}>
         <a className="nav-link" target="blank" href={socialLink}>
           <Icon className="contact-icons" />
         </a>

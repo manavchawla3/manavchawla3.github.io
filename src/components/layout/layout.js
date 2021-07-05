@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Layout = ({ children }) => {
-  return children.props.layout != 'full' ? (
+  return children.props.layout !== 'full' ? (
     <div className="container">
       {children}
     </div>

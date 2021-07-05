@@ -9,8 +9,8 @@ import 'assets/sass/custom.bootstrap.scss';
 import 'assets/sass/app.scss';
 
 const Root = ({ children }) => {
-  const childrenToLayoutMapRender = children.map(child => (
-    <Layout>{child}</Layout>
+  const childrenToLayoutMapRender = children.map((child, index) => (
+    <Layout key={child.props.name || index}>{child}</Layout>
   ));
 
   return (

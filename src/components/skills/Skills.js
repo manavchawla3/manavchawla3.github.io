@@ -62,17 +62,17 @@ const skillLevelWiseArray = [
 
 export default function Skills() {
   const skillSets = skillSets =>
-    skillSets.map(skillSet => (
-      <div className="mx-auto">
+    skillSets.map((skillSet, index) => (
+      <div key={index} className="mx-auto">
         <SkillSet set={skillSet} />
       </div>
     ));
 
   const skillLevels = skillLevelWiseArray.map((skillLevel, index) => (
     <div
-      className={`d-flex justify-content-center ${
-        index > 0 ? 'skill-level' : ''
-      }`}
+      key={index}
+      className={`d-flex justify-content-center ${index > 0 ? 'skill-level' : ''
+        }`}
     >
       {skillSets(skillLevel)}
     </div>

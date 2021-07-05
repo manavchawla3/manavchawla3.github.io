@@ -3,7 +3,7 @@ import React from 'react';
 export default function SkillSet(props) {
   const { set: skillSet } = props;
   const renderSkills = skillSet.skills.map(({ name, icon: Icon }) => (
-    <div className="d-flex flex-column skill">
+    <div key={name} className="d-flex flex-column skill">
       <span className="skill-icon">{<Icon />}</span>
       <span className="skill-name">{name}</span>
     </div>

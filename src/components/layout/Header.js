@@ -42,16 +42,19 @@ export default function Header() {
     onDarkModeClick();
   }, [])
 
-  const navListItems = navAnchors.map(anchor => (
-    <li>
-      <AnchorLink
-        className="nav-link underline-from-left"
-        to={`/#${covertToFragmentURL(anchor)}`}
-      >
-        {anchor}
-      </AnchorLink>
-    </li>
-  ));
+  const navListItems = navAnchors.map(anchor => {
+    const anchorFragmentUrl = covertToFragmentURL(anchor);
+    return (
+      <li key={anchorFragmentUrl}>
+        <AnchorLink
+          className="nav-link underline-from-left"
+          to={`/#${anchorFragmentUrl}`}
+        >
+          {anchor}
+        </AnchorLink>
+      </li>
+    )
+  });
 
   function toggleMenu() {
     setShowMenu(s => !s);
@@ -59,7 +62,7 @@ export default function Header() {
 
   return (
     <header className="row header sticky-top">
-      <div class="container-fluid d-flex justify-content-between header-container align-items-center">
+      <div className="container-fluid d-flex justify-content-between header-container align-items-center">
         <div className="d-flex align-items-center">
           <div className="cursor-pointer d-inline-block d-md-none menu-icon" onClick={toggleMenu}>
             <MenuIcon />
