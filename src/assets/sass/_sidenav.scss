@@ -1,7 +1,40 @@
 .side-nav {
-  position: fixed;
-  transform: translateY(50%);
-  z-index: 1000;
+  ul {
+    li{
+      display: flex;
+      align-items: center;
+      a {
+        padding-bottom: 0 !important;
+      }
+    }
+  }
+
+  // mobile
+  @media only screen and (min-width : 767px) {
+    position: fixed;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 30px;
+    ul{
+      li + li {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+
+  // tab
+  @media only screen and (max-width : 768px) {
+    display: flex;
+    justify-content: center;
+    ul{
+      display: flex;
+      li {
+        & + li {
+          margin-left: 1.5rem;
+        }
+      }
+    }
+  }
 }
 
 [data-theme='dark'] {

@@ -1,10 +1,10 @@
 .header {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   box-shadow: 0px 3px 6px #0000001a;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: var(--background-primary);
 
   .nav-link {
@@ -57,4 +57,74 @@
   img {
     cursor: pointer;
   }
+
+  .theme-switch{
+    width: 30px;
+    height: 30px;
+  }
+
+  // tab
+  @media only screen and (min-width : 767px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .nav-list{
+      li {
+        & + li {
+          margin-left: 2rem;
+        }
+      }
+    }
+    .header-container{
+      padding: 0 2rem;
+    }
+  }
+
+  // desktop-sm
+  @media only screen and (min-width : 1024px) {
+    font-size: 18px;
+    .nav-list{
+      li {
+        & + li {
+          margin-left: 4rem;
+        }
+      }
+    }
+  }
+
+  // mobile
+  @media only screen and (max-width : 768px) {
+    .menu-icon, .theme-switch{
+      width: 24px;
+      height: 24px;
+    }
+
+    .nav-list{
+      position: absolute;
+      bottom: 0;
+      background-color: var(--background-secondary);
+      color: var(--tertiary-color);
+      border-radius: 3px;
+      left: 0;
+      transform: translateY(100%);
+      display: block !important;
+      width: 100%;
+      padding: 1.5rem 1rem;
+      li {
+        & + li {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+
+
+[data-theme='dark'] .menu-icon .cls-2 {
+  fill: #fff;
 }

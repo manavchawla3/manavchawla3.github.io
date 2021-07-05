@@ -26,7 +26,7 @@ const socialLinks = [
 export default function SideNav() {
   const socialNavs = socialLinks.map(
     ({ socialName, socialLink, socialIcon: Icon }) => (
-      <li className="nav-item py-4">
+      <li>
         <a className="nav-link" target="blank" href={socialLink}>
           <Icon className="contact-icons" />
         </a>
@@ -34,14 +34,8 @@ export default function SideNav() {
     )
   );
   return (
-    <div className="row">
-      <div className="col-1"></div>
-      <div className="col-10"></div>
-      <div className="col-1 d-flex justify-content-center">
-        <nav className="side-nav py-5">
-          <ul>{socialNavs}</ul>
-        </nav>
-      </div>
-    </div>
+    <nav className="side-nav">
+      <ul>{socialNavs}</ul>
+    </nav>
   );
 }

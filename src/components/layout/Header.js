@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { AnchorLink } from 'gatsby-plugin-anchor-links';
+import MenuIcon from '../../../static/icons/menu.svg';
+import SideNav from './SideNav';
 
 const covertToFragmentURL = text => text.toLowerCase().split(' ').join('-');
 
 export default function Header() {
+
+  const [showMenu, setShowMenu] = useState(false);
+
   const {
     allContentfulNavBar: {
       edges: [
@@ -34,7 +39,10 @@ export default function Header() {
     }
   };
 
-  onDarkModeClick();
+  
+  useEffect(() => {
+    onDarkModeClick();
+  }, [])
 
   const navListItems = navAnchors.map(anchor => (
     <li>
@@ -47,20 +55,36 @@ export default function Header() {
     </li>
   ));
 
+  function toggleMenu() {
+    setShowMenu(s => !s);
+  }
+
   return (
-    <nav className="navbar header row sticky-top">
-      <div className="col-1"></div>
-      <div className="col-10">
-        <ul className="d-flex justify-content-around align-content-center">
-          {navListItems}
-        </ul>
+    <header className="row header sticky-top">
+      <div class="container-fluid d-flex justify-content-between header-container align-items-center">
+        <div className="d-flex align-items-center">
+          <div className="cursor-pointer d-inline-block d-md-none menu-icon" onClick={toggleMenu}>
+            <MenuIcon />
+          </div>
+        </div>
+        
+        <div className="d-flex align-items-center">
+          <div className={`${showMenu ? 'd-block': 'd-none'} d-md-block`}>
+            <ul className="d-flex align-content-center nav-list">
+              {navListItems}
+            </ul>
+          </div>
+          <SideNav />
+        </div>
+        <div className="d-flex align-items-center">
+          <div
+            id="darkMode"
+            className="theme-switch"
+          >
+            <img onClick={onDarkModeClick} src="/icons/theme-light-dark.svg" />
+          </div>
+        </div>
       </div>
-      <div
-        id="darkMode"
-        className="col-1 d-flex justify-content-center align-content-center"
-      >
-        <img onClick={onDarkModeClick} src="/icons/theme-light-dark.svg" />
-      </div>
-    </nav>
+    </header>
   );
 }
