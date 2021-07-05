@@ -11,9 +11,9 @@ export default function Home() {
     <div id="home" className="home section">
       <div className="d-flex flex-column justify-content-center">
         <span className="misc-content">I am</span>
-        <span className="name mt-3">Manav Chawla</span>
+        <span className="name mt-2 mt-md-3">Manav Chawla</span>
       </div>
-      <div className="d-flex flex-column justify-content-center pt-5">
+      <div className="d-flex flex-column justify-content-center pt-4 mt-2 mt-sm-0  pt-sm-5">
         <span className="misc-content">I’m a</span>
         <span className="role typewriter mt-3">Full Stack Developer</span>
       </div>
