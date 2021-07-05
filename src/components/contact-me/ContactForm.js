@@ -34,32 +34,32 @@ class ContactForm extends React.Component {
       isSubmitting: true
     });
 
-    if(this.props.data.sendMailUrl) {
+    if (this.props.data.sendMailUrl) {
       axios
-      .post(`${this.props.data.sendMailUrl}`, {
-        name: this.state.name,
-        email: this.state.email,
-        subject: this.state.subject,
-        message: this.state.message
-      })
-      .then(res => {
-        this.successAlertHandler();
-      })
-      .catch(({ response: error }) => {
-        if (error) {
-          if (error.status == 400) {
-            this.errorAlertHandler(error.data.errors.map(error => error.msg));
+        .post(`${this.props.data.sendMailUrl}`, {
+          name: this.state.name,
+          email: this.state.email,
+          subject: this.state.subject,
+          message: this.state.message
+        })
+        .then(res => {
+          this.successAlertHandler();
+        })
+        .catch(({ response: error }) => {
+          if (error) {
+            if (error.status === 400) {
+              this.errorAlertHandler(error.data.errors.map(error => error.msg));
+            } else {
+              this.errorAlertHandler(['Something Went Wrong']);
+            }
           } else {
             this.errorAlertHandler(['Something Went Wrong']);
           }
-        } else {
-          this.errorAlertHandler(['Something Went Wrong']);
-        }
-      })
-      .finally(() => {
-        this.resetFormState();
-        formRef.reset();
-      });
+        })
+        .finally(() => {
+          this.resetFormState();
+          formRef.reset();
+        });
     } else {
       this.errorAlertHandler(['Something Went Wrong']);
       this.resetFormState();
@@ -98,14 +98,14 @@ class ContactForm extends React.Component {
 
   resetAlertsAfterTimeout() {
     setTimeout(() => {
-      this.setState({ showSuccessAlert: false, showErrorAlert:false, errors: [] });
+      this.setState({ showSuccessAlert: false, showErrorAlert: false, errors: [] });
     }, 5000);
   }
 
   errorAlertRenderer() {
     return this.state.errors.map(error => (
       <div
-        class="alert alert-danger alert-dismissible animated flipInX"
+        className="alert alert-danger alert-dismissible animated flipInX"
         role="alert"
       >
         <strong>Error!</strong> {error}
@@ -115,7 +115,7 @@ class ContactForm extends React.Component {
 
   successAlertRenderer() {
     return (
-      <div class="alert alert-success alert-dismissible flipInX" role="alert">
+      <div className="alert alert-success alert-dismissible flipInX" role="alert">
         <strong>Success!</strong> Your message has been successfuly delivered.
       </div>
     );
@@ -131,8 +131,8 @@ class ContactForm extends React.Component {
         {this.state.showErrorAlert ? this.errorAlertRenderer() : <></>}
 
         <form ref={this.formRef} onSubmit={this.handleSubmitForm}>
-          <div class="row inline-form">
-            <div class="col-md">
+          <div className="row inline-form">
+            <div className="col-md">
               <div className="form-group">
                 <input
                   type="text"
@@ -145,7 +145,7 @@ class ContactForm extends React.Component {
                 />
               </div>
             </div>
-            <div class="col-md">
+            <div className="col-md">
               <div className="form-group">
                 <input
                   type="email"
@@ -209,7 +209,7 @@ export default () => {
       }
     }
   `);
-  
+
   return (
     <ContactForm data={data} />
   )
