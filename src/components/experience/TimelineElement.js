@@ -32,7 +32,7 @@ export default function TimeLineElement(props) {
         {logo || info ? (
           <div className="timeline-element-info mt-4">
             <div className="logo">
-              <img style={{ 'max-height': '30px' }} src={logo} />
+              <img style={{ 'max-height': '30px' }} src={logo} alt="Logo"/>
             </div>
             <div className="summary mt-1">{info}</div>
           </div>

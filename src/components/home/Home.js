@@ -4,7 +4,7 @@ import { AnchorLink } from 'gatsby-plugin-anchor-links';
 import Database from '../../../static/icons/database.svg';
 import Server from '../../../static/icons/Server.svg';
 import Web from '../../../static/icons/web.svg';
-import Scroll_Down from '../../../static/icons/scroll_down.svg';
+import ScrollDown from '../../../static/icons/scroll_down.svg';
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <AnchorLink to="/#about" className="scroll-down-container">
         <span>
-          <Scroll_Down />
+          <ScrollDown />
         </span>
       </AnchorLink>
     </div>
