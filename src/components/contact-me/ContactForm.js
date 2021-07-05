@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { useStaticQuery, graphql } from "gatsby"
 
 import Spinner from '../common/Spinner';
 
-export default class ContactForm extends React.Component {
+class ContactForm extends React.Component {
   constructor() {
     super();
 
@@ -33,8 +34,9 @@ export default class ContactForm extends React.Component {
       isSubmitting: true
     });
 
-    axios
-      .post(`${process.env.SUBMIT_CONTACT_FORM_CLOUD_FUNC_URL}`, {
+    if(this.props.data.sendMailUrl) {
+      axios
+      .post(`${this.props.data.sendMailUrl}`, {
         name: this.state.name,
         email: this.state.email,
         subject: this.state.subject,
@@ -48,16 +50,21 @@ export default class ContactForm extends React.Component {
           if (error.status == 400) {
             this.errorAlertHandler(error.data.errors.map(error => error.msg));
           } else {
-            this.errorAlertRenderer(['Something Went Wrong']);
+            this.errorAlertHandler(['Something Went Wrong']);
           }
         } else {
-          this.errorAlertRenderer(['Something Went Wrong']);
+          this.errorAlertHandler(['Something Went Wrong']);
         }
       })
       .finally(() => {
         this.resetFormState();
         formRef.reset();
       });
+    } else {
+      this.errorAlertHandler(['Something Went Wrong']);
+      this.resetFormState();
+      formRef.reset();
+    }
   };
 
   resetFormState() {
@@ -81,17 +88,17 @@ export default class ContactForm extends React.Component {
 
   successAlertHandler() {
     this.setState({ showSuccessAlert: true });
-
-    setTimeout(() => {
-      this.setState({ showSuccessAlert: false });
-    }, 5000);
+    this.resetAlertsAfterTimeout();
   }
 
   errorAlertHandler(errors) {
     this.setState({ showErrorAlert: true, errors });
+    this.resetAlertsAfterTimeout();
+  }
 
+  resetAlertsAfterTimeout() {
     setTimeout(() => {
-      this.setState({ showSuccessAlert: false, errors: [] });
+      this.setState({ showSuccessAlert: false, showErrorAlert:false, errors: [] });
     }, 5000);
   }
 
@@ -190,4 +197,20 @@ export default class ContactForm extends React.Component {
       </>
     );
   }
+}
+
+export default () => {
+  const {
+    contentfulContactMe: data
+  } = useStaticQuery(graphql`
+    {
+      contentfulContactMe {
+        sendMailUrl
+      }
+    }
+  `);
+  
+  return (
+    <ContactForm data={data} />
+  )
 }
