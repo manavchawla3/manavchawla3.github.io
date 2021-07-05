@@ -91,4 +91,34 @@
     vertical-align: middle;
     margin-right: 0.5em;
   }
+
+  @media only screen and (max-width : 768px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    &>.d-flex{
+      flex-direction: column !important;
+    }
+    .contact-form {
+      margin-top: 50px;
+      margin-left: 0em;
+      .form-header {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.inline-form{
+  &>div:last-child{
+    margin-top: 1rem;
+  }
+  @media only screen and (min-width: 767px) {
+    &>div:first-child{
+      padding-right: .5rem;
+    }
+    &>div:last-child{
+      margin-top: 0rem;
+      padding-left: .5rem;
+    }
+  }
 }

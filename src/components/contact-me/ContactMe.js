@@ -50,7 +50,7 @@ export default function ContactMe() {
         </div>
 
         <div className="contact-form d-flex flex-column flex-grow-1">
-          <span className="form-header text--uppercase mb-3">Contact Me</span>
+          <span className="form-header text--uppercase mb-3">Contact Me </span>
           <ContactForm className="mt-3"></ContactForm>
         </div>
       </div>
