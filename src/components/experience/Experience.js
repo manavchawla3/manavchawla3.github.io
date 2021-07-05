@@ -20,17 +20,43 @@ import NextJs from '../../../static/icons/nextjs.svg';
 import RubyOnRails from '../../../static/icons/reactjs.svg';
 import Php from '../../../static/icons/php.svg';
 import MySql from '../../../static/icons/mysql.svg';
+import Go from '../../../static/icons/go.svg';
 
 const experienceData = [
+  {
+    fromDate: {
+      month: 'December',
+      year: '2020'
+    },
+    logo: 'images/grab.png',
+    info:
+      'Grab is Southeast Asia\'s leading superapp. It provides everyday services like Deliveries, Mobility, Financial Services, and More.',
+    isPresent: true,
+    title: 'Software Engineer',
+    description: 'Bengaluru, India',
+    keyPoints: [
+      'Design, develop, test, modify and improve loan and paylater products'
+    ],
+    skills: [
+      { name: 'React Js', icon: ReactJs },
+      { name: 'Go', icon: Go },
+      { name: 'AWS', icon: AWS },
+      { name: 'MySql', icon: MySql }
+    ]
+  },
   {
     fromDate: {
       month: 'July',
       year: '2019'
     },
+    toDate: {
+      month: 'November',
+      year: '2020'
+    },
     logo: 'images/zetwerk.png',
     info:
       'Zetwerk provides global end-to-end manufacturing supply chain solutions',
-    isPresent: true,
+    isPresent: false,
     title: 'Full-Stack Developer',
     description: 'Bengaluru, India',
     keyPoints: [
@@ -59,7 +85,7 @@ const experienceData = [
     },
     logo: 'images/anteelo.png',
     info:
-      'Zetwerk provides global end-to-end manufacturing supply chain solutions',
+      'Anteelo is a leading design and strategy firm in India that enables brands and businesses to innovate digitally',
     title: 'Full-Stack Developer',
     description: 'Delhi, India',
     keyPoints: [
@@ -200,8 +226,8 @@ export default function Experience() {
         <span className="header-text-background">{workExTitle}</span>
       </div>
       <VerticalTimeline>
-        {experienceData.map(exp => (
-          <VerticalTimelineElement icon={<TimeTag />}>
+        {experienceData.map((exp, index) => (
+          <VerticalTimelineElement key={index} icon={<TimeTag />}>
             <TimelineElement data={exp}></TimelineElement>
           </VerticalTimelineElement>
         ))}
@@ -216,8 +242,8 @@ export default function Experience() {
 
       <VerticalTimeline>
         {timelineHeaderElement(personalProjectstitle)}
-        {projectData.map(exp => (
-          <VerticalTimelineElement icon={<TimeTag />}>
+        {projectData.map((exp, index) => (
+          <VerticalTimelineElement key={index} icon={<TimeTag />}>
             <TimelineElement data={exp}></TimelineElement>
           </VerticalTimelineElement>
         ))}
@@ -232,8 +258,8 @@ export default function Experience() {
 
       <VerticalTimeline>
         {timelineHeaderElement(educationTitle)}
-        {educationData.map(exp => (
-          <VerticalTimelineElement icon={<TimeTag />}>
+        {educationData.map((exp, index) => (
+          <VerticalTimelineElement key={index} icon={<TimeTag />}>
             <TimelineElement data={exp}></TimelineElement>
           </VerticalTimelineElement>
         ))}
