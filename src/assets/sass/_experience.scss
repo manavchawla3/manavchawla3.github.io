@@ -106,6 +106,7 @@
       bottom: -8px;
       left: -8px;
     }
+
   }
 
   .end-tag {
@@ -117,6 +118,33 @@
         }
       }
     }
+  }
+
+  @media only screen and (max-width : 768px) {
+    margin-top: 20px;
+    .vertical-timeline {
+      .vertical-timeline-element{
+        &:nth-of-type(2n + 1) {
+          .timeline-element-date {
+            text-align: left;
+          }
+        }
+      }
+    }
+    .workEx-Header.header-text-container {
+      text-align: center;
+      .header-text-background{
+        left: 0;
+        right: 0;
+      }
+      // for div which we only view on mobile
+      &.d-sm-none{
+        margin-bottom: 20px;
+        margin-top: 36px;
+      }
+    }
+    .end-tag{ display: none; }
+    // .vertical-timeline-element:nth-last-child(2) {} 
   }
 }
 

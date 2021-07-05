@@ -2,6 +2,17 @@
   .skill-level {
     margin-top: 100px;
   }
+  @media only screen and (max-width : 768px) {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    .skill-level{
+      margin-top: 0px;
+      display: block !important;
+      .mx-auto{
+        margin-top: 50px;
+      }
+    }
+  }
 }
 
 .skill-set {
@@ -26,6 +37,16 @@
 
     .skill-name {
       margin-top: 4px;
+    }
+  }
+  @media only screen and (max-width : 768px) {
+    .set-name{
+      margin-bottom: 24px;
+    }
+    .set-values{
+      display: grid !important;
+      grid-template-columns: auto auto auto;
+      grid-gap: 24px 0;
     }
   }
 }

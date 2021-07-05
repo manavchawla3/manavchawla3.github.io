@@ -40,9 +40,11 @@ export default function Testimonials() {
 
   return (
     <div id="testimonials" className="testimonials section">
-      <ul>
-        <Carousel className="carousel" slides={testimonialsListItem}></Carousel>
-      </ul>
+      <div className="container">
+        <ul>
+          <Carousel className="carousel" slides={testimonialsListItem}></Carousel>
+        </ul>
+      </div>
     </div>
   );
 }

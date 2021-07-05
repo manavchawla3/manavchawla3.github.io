@@ -11,7 +11,7 @@ export default function SkillSet(props) {
   return (
     <div className="skill-set text-center">
       <div className="set-name">{skillSet.category}</div>
-      <div className="set-values d-flex justify-content-center mt-4">
+      <div className="set-values d-flex justify-content-center mt-0 mt-md-4">
         {renderSkills}
       </div>
     </div>
