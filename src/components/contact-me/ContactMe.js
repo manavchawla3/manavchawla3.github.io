@@ -45,6 +45,7 @@ export default function ContactMe() {
           <img
             className="profile-picture"
             src="images/contact_me_profile.png"
+            alt="Profile Image"
           />
           <ul className="d-flex mt-3 social-links"> {socials} </ul>
         </div>

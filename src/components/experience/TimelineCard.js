@@ -39,7 +39,7 @@ export default function TimeLine(props) {
         <div className="right-text d-flex flex-column align-items-end">
           {extra ? <span>{extra}</span> : <></>}
           {link ? (
-            <a target="_blank" href={link}>
+            <a target="_blank" rel="noreferrer" href={link}>
               {link}
             </a>
           ) : (

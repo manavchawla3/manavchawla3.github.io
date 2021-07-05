@@ -1,6 +1,4 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-
 import Gmail from '../../../static/icons/gmail.svg';
 import Linkedin from '../../../static/icons/linkedin.svg';
 import Github from '../../../static/icons/github.svg';

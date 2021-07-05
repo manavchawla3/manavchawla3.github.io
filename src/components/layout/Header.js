@@ -7,7 +7,6 @@ import SideNav from './SideNav';
 const covertToFragmentURL = text => text.toLowerCase().split(' ').join('-');
 
 export default function Header() {
-
   const [showMenu, setShowMenu] = useState(false);
 
   const {
@@ -38,7 +37,6 @@ export default function Header() {
       document.documentElement.setAttribute('data-theme', 'dark');
     }
   };
-
   
   useEffect(() => {
     onDarkModeClick();
@@ -81,7 +79,7 @@ export default function Header() {
             id="darkMode"
             className="theme-switch"
           >
-            <img onClick={onDarkModeClick} src="/icons/theme-light-dark.svg" />
+            <img onClick={onDarkModeClick} src="/icons/theme-light-dark.svg" alt="Theme switch"/>
           </div>
         </div>
       </div>
