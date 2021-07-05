@@ -85,6 +85,10 @@
         position: absolute;
         left: -16px;
         transform: translate(-100%, -100%);
+
+        @media only screen and (max-width : 1000px) {
+          content: none;
+        }
       }
 
       &::after {
@@ -92,6 +96,10 @@
         position: absolute;
         right: -16px;
         transform: translate(100%, 40%);
+
+        @media only screen and (max-width : 1000px) {
+          content: none;
+        }
       }
     }
 

@@ -136,6 +136,14 @@
       .header-text-background{
         left: 0;
         right: 0;
+
+        @media only screen and (max-width : 411px) {
+          font-size: 36px;
+        }
+
+        @media only screen and (max-width : 320px) {
+          font-size: 32px;
+        }
       }
       // for div which we only view on mobile
       &.d-sm-none{
@@ -147,6 +155,7 @@
     // .vertical-timeline-element:nth-last-child(2) {} 
   }
 }
+
 
 /** Darh Theme Customization **/
 [data-theme='dark'] {

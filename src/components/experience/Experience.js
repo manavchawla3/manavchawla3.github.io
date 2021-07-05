@@ -100,6 +100,10 @@ const experienceData = [
   }
 ];
 
+const workExTitle = "Work Experience";
+const personalProjectstitle = "Personal Projects";
+const educationTitle = "Education";
+
 const projectData = [
   {
     fromDate: {
@@ -192,8 +196,8 @@ export default function Experience() {
     <div id="experience" className="experience section">
       {/* Experience Timeline */}
       <div className="workEx-Header header-text-container">
-        <span className="header-text">Work Experience</span>
-        <span className="header-text-background">Work Experience</span>
+        <span className="header-text">{workExTitle}</span>
+        <span className="header-text-background">{workExTitle}</span>
       </div>
       <VerticalTimeline>
         {experienceData.map(exp => (
@@ -206,12 +210,12 @@ export default function Experience() {
       {/* Personal Projects Timeline */}
       {/* below html div is only for mobile view */}
       <div className="workEx-Header header-text-container d-block d-sm-none">
-        <span className="header-text">Personal Projects</span>
-        <span className="header-text-background">Personal Projects</span>
+        <span className="header-text">{personalProjectstitle}</span>
+        <span className="header-text-background">{personalProjectstitle}</span>
       </div>
 
       <VerticalTimeline>
-        {timelineHeaderElement('Personal Projects')}
+        {timelineHeaderElement(personalProjectstitle)}
         {projectData.map(exp => (
           <VerticalTimelineElement icon={<TimeTag />}>
             <TimelineElement data={exp}></TimelineElement>
@@ -222,12 +226,12 @@ export default function Experience() {
       {/* Education Timeline */}
       {/* below html div is only for mobile view */}
       <div className="workEx-Header header-text-container d-block d-sm-none">
-        <span className="header-text">Education</span>
-        <span className="header-text-background">Education</span>
+        <span className="header-text">{educationTitle}</span>
+        <span className="header-text-background">{educationTitle}</span>
       </div>
 
       <VerticalTimeline>
-        {timelineHeaderElement('Education')}
+        {timelineHeaderElement(educationTitle)}
         {educationData.map(exp => (
           <VerticalTimelineElement icon={<TimeTag />}>
             <TimelineElement data={exp}></TimelineElement>
