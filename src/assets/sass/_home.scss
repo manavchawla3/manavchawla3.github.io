@@ -49,7 +49,7 @@
     left: 50%;
     width: 32px;
     height: 32px;
-    translate: -50% 50%;
+    transform: translate(-50%, 50%);
     background-color: $primary-color;
     border-radius: 50%;
 
@@ -63,6 +63,31 @@
 
       .c {
         stroke-width: 0px;
+      }
+    }
+  }
+
+  @media only screen and (max-width : 768px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .misc-content{
+      font-size: 14px;
+    }
+    .name, .role{
+      font-size: 24px;
+    }
+    .developer-icons{
+      display: block !important;
+      svg {
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        & + svg {
+          margin-top: 28px;
+          
+        }
       }
     }
   }

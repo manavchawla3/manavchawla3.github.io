@@ -55,7 +55,7 @@ export default function About() {
 
   const contactListItems = contactInfo =>
     contactInfo.map(({ link, value, icon: Icon }, index) => (
-      <li className={index > 0 ? 'mt-5' : ''}>
+      <li className={` mt-4 ${index > 0 ? 'mt-md-5' : 'mt-md-0'}`}>
         <a
           className="d-flex align-items-center contact-icons"
           target="_blank"
@@ -96,7 +96,7 @@ export default function About() {
           </div>
           <div className="contact-details d-flex">
             <ul className="mr-4">{contactListItems(contactInfoLeft)}</ul>
-            <ul className="ml-4">{contactListItems(contactInfoRight)}</ul>
+            <ul className="ml-0 ml-md-4">{contactListItems(contactInfoRight)}</ul>
           </div>
         </div>
       </div>
