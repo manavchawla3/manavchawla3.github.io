@@ -170,7 +170,7 @@ const timelineHeaderElement = title => {
         iconStyle={{ visibility: 'hidden' }}
       ></VerticalTimelineElement>
       <VerticalTimelineElement
-        className="vertical-timeline-element-header"
+        className="vertical-timeline-element-header d-none d-md-block"
         icon={<TimeTag />}
         iconStyle={{ visibility: 'hidden' }}
       >
@@ -202,7 +202,14 @@ export default function Experience() {
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
+
       {/* Personal Projects Timeline */}
+      {/* below html div is only for mobile view */}
+      <div className="workEx-Header header-text-container d-block d-sm-none">
+        <span className="header-text">Personal Projects</span>
+        <span className="header-text-background">Personal Projects</span>
+      </div>
+
       <VerticalTimeline>
         {timelineHeaderElement('Personal Projects')}
         {projectData.map(exp => (
@@ -211,7 +218,14 @@ export default function Experience() {
           </VerticalTimelineElement>
         ))}
       </VerticalTimeline>
+      
       {/* Education Timeline */}
+      {/* below html div is only for mobile view */}
+      <div className="workEx-Header header-text-container d-block d-sm-none">
+        <span className="header-text">Education</span>
+        <span className="header-text-background">Education</span>
+      </div>
+
       <VerticalTimeline>
         {timelineHeaderElement('Education')}
         {educationData.map(exp => (
