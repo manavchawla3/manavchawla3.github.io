@@ -124,30 +124,35 @@ export default class ContactForm extends React.Component {
         {this.state.showErrorAlert ? this.errorAlertRenderer() : <></>}
 
         <form ref={this.formRef} onSubmit={this.handleSubmitForm}>
-          <div className="d-flex">
-            <div className="form-group flex-grow-1">
-              <input
-                type="text"
-                className="form-control"
-                name="name"
-                placeholder="Name"
-                value={this.state.name}
-                onChange={this.handleInputChange}
-                required
-              />
+          <div class="row inline-form">
+            <div class="col-md">
+              <div className="form-group">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="name"
+                  placeholder="Name"
+                  value={this.state.name}
+                  onChange={this.handleInputChange}
+                  required
+                />
+              </div>
             </div>
-            <div className="form-group ml-3 flex-grow-1">
-              <input
-                type="email"
-                className="form-control"
-                name="email"
-                placeholder="Email"
-                value={this.state.email}
-                onChange={this.handleInputChange}
-                required
-              />
+            <div class="col-md">
+              <div className="form-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  name="email"
+                  placeholder="Email"
+                  value={this.state.email}
+                  onChange={this.handleInputChange}
+                  required
+                />
+              </div>
             </div>
           </div>
+
           <div className="form-group mt-3">
             <input
               type="text"
