@@ -16,7 +16,16 @@ npm run setup-hooks
 
 # Start local development server
 npm run serve
-# Visit http://localhost:8000
+```
+
+The server will automatically find an available port (8000-8010) and show you the URLs:
+- Portfolio: http://localhost:PORT
+- Resume: http://localhost:PORT/resume.html
+
+**Alternative ports:**
+```bash
+npm run serve:8000  # Force port 8000
+npm run serve:3000  # Force port 3000
 ```
 
 ## 📁 Project Structure
@@ -57,7 +66,8 @@ npm run serve
 │       └── list.json
 └── scripts/
     ├── validate.js         # Validation script
-    └── refresh.sh          # Refresh & publish script
+    ├── refresh.sh          # Refresh & publish script
+    └── serve.sh            # Local development server
 ```
 
 ## 🛠️ Commands
@@ -246,6 +256,20 @@ npm run refresh -- -p -m "Add testimonial from Person Name"
 
 ## 🐛 Troubleshooting
 
+### Serve Command - Port Already in Use
+If you get "Address already in use" error:
+
+```bash
+# The serve command will automatically try ports 8000-8010
+npm run serve
+
+# Or kill the process using the port
+lsof -ti:8000 | xargs kill -9
+
+# Or use a specific port
+npm run serve:3000
+```
+
 ### Validation Errors
 If you encounter validation errors:
 
@@ -265,13 +289,14 @@ If your commit is blocked by the pre-commit hook:
 ### Refresh Command Not Working
 Make sure scripts are executable:
 ```bash
-chmod +x scripts/refresh.sh scripts/validate.js
+chmod +x scripts/refresh.sh scripts/validate.js scripts/serve.sh
 chmod +x .git/hooks/pre-commit
 ```
 
 ## 📚 Additional Documentation
 
-See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed implementation notes.
+- [QUICKSTART.md](QUICKSTART.md) - Quick reference guide
+- [IMPLEMENTATION.md](IMPLEMENTATION.md) - Detailed implementation notes
 
 ## 📄 License
 

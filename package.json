@@ -8,7 +8,9 @@
     "refresh:commit": "bash scripts/refresh.sh --commit",
     "refresh:push": "bash scripts/refresh.sh --push",
     "setup-hooks": "chmod +x .git/hooks/pre-commit && echo 'Git hooks installed'",
-    "serve": "python3 -m http.server 8000",
+    "serve": "bash scripts/serve.sh",
+    "serve:8000": "python3 -m http.server 8000",
+    "serve:3000": "python3 -m http.server 3000",
     "test": "npm run validate"
   },
   "repository": {
