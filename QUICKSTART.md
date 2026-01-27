@@ -2,6 +2,13 @@
 
 ## Common Commands
 
+### Start local server
+```bash
+npm run serve
+# Automatically finds available port (8000-8010)
+# Shows URLs for portfolio and resume
+```
+
 ### Validate content
 ```bash
 npm run validate
@@ -27,6 +34,25 @@ npm run refresh -- -p -m "Your commit message here"
 ### Adding Testimonial
 1. Edit `data/testimonials/list.json`
 2. Run: `npm run refresh -- -p -m "Add testimonial from Person Name"`
+
+## Troubleshooting
+
+### Port Already in Use
+```bash
+# Serve command auto-tries ports 8000-8010
+npm run serve
+
+# Or use specific port
+npm run serve:3000
+
+# Or kill process on port
+lsof -ti:8000 | xargs kill -9
+```
+
+### Validation Errors
+1. Run `npm run validate` to see errors
+2. Fix issues in JSON files
+3. Check existing files for reference
 
 ## Git Hook Behavior
 
