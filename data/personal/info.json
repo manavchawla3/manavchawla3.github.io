@@ -1,0 +1,15 @@
+{
+  "name": "Manav Chawla",
+  "title": "Senior Software Engineer, Backend",
+  "email": "manavchawla3@gmail.com",
+  "phone": "919711308935",
+  "location": "Bengaluru, India",
+  "summary": "Senior Backend Engineer with 9+ years building and scaling distributed systems for fintech and e-commerce. Deep expertise in Go (Golang), Temporal.io workflow orchestration, and GitOps on AWS (Terraform, CI/CD). Proven record of cutting cloud spend by 40% and delivering 99.99% reliable, mission-critical platforms through RFC-driven design, high-throughput APIs, and event-driven architectures. Trusted technical leader who ships secure, scalable services and mentors teams.",
+  "links": {
+    "github": "https://github.com/manavchawla3",
+    "linkedin": "https://www.linkedin.com/in/manav-chawla-4955489b/",
+    "website": "https://manavchawla3.github.io",
+    "resume": "resume.html"
+  },
+  "tagline": "Building scalable systems_"
+}

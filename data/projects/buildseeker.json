@@ -1,0 +1,16 @@
+{
+  "id": "buildseeker",
+  "title": "BuildSeeker",
+  "description": "Real-time aggregator that normalizes PC component SKUs, prices, and stock across global vendors with currency/region handling",
+  "tags": ["Laravel", "PostgreSQL", "Redis", "GraphQL", "Next.js"],
+  "features": [
+    "Real-time aggregator that normalizes PC component SKUs, prices, and stock across global vendors with currency/region handling",
+    "Resilient crawler pipeline with rotating proxies, exponential backoff, and vendor-specific parsers; incremental updates and caching",
+    "User features: watchlists, price-drop alerts, vendor scorecards, and search/filtering over a normalized catalog",
+    "Stack: Go/Node.js, PostgreSQL/Redis, GraphQL API, Next.js, queues on AWS, and Terraform-based provisioning"
+  ],
+  "link": "",
+  "github": "",
+  "order": 2,
+  "featured": true
+}

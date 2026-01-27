@@ -1,0 +1,9 @@
+{
+  "section": "testimonials",
+  "title": "Testimonials",
+  "description": "Recommendations and feedback from colleagues",
+  "order": 6,
+  "dataFile": "list.json",
+  "includeInResume": false,
+  "includeInPortfolio": true
+}

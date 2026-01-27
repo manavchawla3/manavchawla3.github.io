@@ -1,0 +1,9 @@
+{
+  "section": "skills",
+  "title": "Skills",
+  "description": "Technical skills and expertise",
+  "order": 3,
+  "dataFile": "categories.json",
+  "includeInResume": true,
+  "includeInPortfolio": true
+}

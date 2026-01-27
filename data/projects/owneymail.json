@@ -1,0 +1,16 @@
+{
+  "id": "owneymail",
+  "title": "OwneyMail",
+  "description": "High-throughput, multi-tenant email marketing engine built with Go and queue-backed delivery for reliable, low-latency sends",
+  "tags": ["NodeJs", "ReactJs", "Docker", "AWS SQS/SNS"],
+  "features": [
+    "High-throughput, multi-tenant email marketing engine built with NodeJs and queue-backed delivery for reliable, low-latency sends",
+    "Dynamic template rendering, audience segmentation, and rate-limited dispatch with retries, DLQs, and idempotent APIs",
+    "Event pipeline for bounces, complaints, opens/clicks, and suppression lists with GDPR-compliant unsubscribe flows",
+    "Infrastructure-as-Code (Terraform), containerized deployment, and observability via Prometheus/Grafana and structured logs"
+  ],
+  "link": "",
+  "github": "",
+  "order": 1,
+  "featured": true
+}

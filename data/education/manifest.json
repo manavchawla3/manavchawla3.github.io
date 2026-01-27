@@ -1,0 +1,9 @@
+{
+  "section": "education",
+  "title": "Education",
+  "description": "Academic background and credentials",
+  "order": 5,
+  "files": ["btech.json", "higher-secondary.json"],
+  "includeInResume": true,
+  "includeInPortfolio": false
+}

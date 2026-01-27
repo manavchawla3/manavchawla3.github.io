@@ -1,105 +1,29 @@
-// Data from resume - keeping content synchronized
-const data = {
-    personal: {
-        name: "Manav Chawla",
-        role: "Senior Software Engineer, Backend",
-        email: "manavchawla3@gmail.com",
-        phone: "919711308935",
-        website: "https://manavchawla3.github.io",
-        linkedin: "https://www.linkedin.com/in/manav-chawla-4955489b/",
-        github: "https://github.com/manavchawla3"
-    },
-    summary: "Senior Backend Engineer with 9+ years building and scaling distributed systems for fintech and e-commerce. Deep expertise in Go (Golang), Temporal.io workflow orchestration, and GitOps on AWS (Terraform, CI/CD). Proven record of cutting cloud spend by 40% and delivering 99.99% reliable, mission-critical platforms through RFC-driven design, high-throughput APIs, and event-driven architectures. Trusted technical leader who ships secure, scalable services and mentors teams.",
-    experience: [
-        {
-            company: "Grab",
-            location: "Bengaluru",
-            role: "Senior Software Engineer, Backend",
-            period: "November 2020 – Present",
-            tags: ["Golang", "Terraform", "Temporal", "AWS", "Kubernetes"],
-            highlights: [
-                "Architected and implemented a centralized Graph Orchestration Platform using Temporal.io",
-                "Improved reliability of mission-critical distributed workflows achieving 99.99% uptime",
-                "Designed and delivered a scalable Configuration Management Service with GitOps",
-                "Re-engineered high-throughput deductions logic, cutting batch processing runtime by 50%+",
-                "Co-led the end-to-end launch of the in-house PCA ID Taralite loan product"
-            ]
-        },
-        {
-            company: "Zetwerk",
-            location: "Bengaluru",
-            role: "Senior Software Engineer, Fullstack",
-            period: "July 2019 – November 2020",
-            tags: ["Node.js", "Terraform", "MongoDB", "React.js", "AWS"],
-            highlights: [
-                "Spearheaded the re-architecture of AWS infrastructure using Terraform, achieving 40% cost reduction",
-                "Designed and implemented a reusable boilerplate in Node.js and Express.js",
-                "Led the end-to-end design and development of key microservices",
-                "Promoted to Senior Engineer within nine months for consistently exceeding project goals"
-            ]
-        },
-        {
-            company: "Dockabl",
-            location: "",
-            role: "Software Developer",
-            period: "July 2017 – April 2019",
-            tags: ["Laravel", "PHP", "Node.js", "AngularJS", "PostgreSQL"],
-            highlights: [
-                "Transitioned from frontend to full-stack development within 6–7 months",
-                "Delivered a complete feature module for Flipkart in 15 days",
-                "Played a key role in establishing the infrastructure from scratch",
-                "Contributed to the first lines of code for Dockabl's employee performance management platform"
-            ]
-        }
-    ],
-    projects: [
-        {
-            title: "OwneyMail",
-            tech: "NodeJs • ReactJs • Docker • AWS SQS/SNS",
-            description: "High-throughput, multi-tenant email marketing engine built with Go and queue-backed delivery for reliable, low-latency sends",
-            features: [
-                "Dynamic template rendering, audience segmentation, and rate-limited dispatch with retries, DLQs, and idempotent APIs",
-                "Event pipeline for bounces, complaints, opens/clicks, and suppression lists with GDPR-compliant unsubscribe flows",
-                "Infrastructure-as-Code (Terraform), containerized deployment, and observability via Prometheus/Grafana"
-            ]
-        },
-        {
-            title: "BuildSeeker",
-            tech: "Laravel • PostgreSQL • Redis • GraphQL • Next.js",
-            description: "Real-time aggregator that normalizes PC component SKUs, prices, and stock across global vendors with currency/region handling",
-            features: [
-                "Resilient crawler pipeline with rotating proxies, exponential backoff, and vendor-specific parsers",
-                "User features: watchlists, price-drop alerts, vendor scorecards, and search/filtering over a normalized catalog",
-                "Stack: Go/Node.js, PostgreSQL/Redis, GraphQL API, Next.js, queues on AWS, and Terraform-based provisioning"
-            ]
-        }
-    ],
-    skills: {
-        "Core Stack": ["Golang", "Node.js", "JavaScript (ES6+)", "React.js"],
-        "Infrastructure": ["GitLab CI/CD", "Docker", "Terraform", "Temporal"],
-        "Data": ["MySQL", "PostgreSQL", "GraphQL"],
-        "Cloud": ["AWS", "Kubernetes"]
-    }
-};
+/**
+ * Portfolio Renderer
+ * Renders portfolio content using data from manifests
+ */
+
+const dataLoader = new DataLoader();
+let portfolioData = null;
 
 // Typing animation
-function typeText() {
-    const fullText = "Building scalable systems_";
-    const element = document.getElementById('typed-text');
+function typeText(text, elementId) {
+    const element = document.getElementById(elementId);
     let index = 0;
 
     const interval = setInterval(() => {
-        element.textContent = fullText.slice(0, index);
+        element.textContent = text.slice(0, index);
         index++;
-        if (index > fullText.length) clearInterval(interval);
+        if (index > text.length) clearInterval(interval);
     }, 100);
 }
 
-// Render experience
-function renderExperience() {
+// Render experience section
+function renderExperience(experiences) {
     const container = document.getElementById('experience-list');
+    container.innerHTML = '';
 
-    data.experience.forEach(job => {
+    experiences.forEach(job => {
         const jobElement = document.createElement('div');
         jobElement.className = 'relative pl-8 group';
         jobElement.innerHTML = `
@@ -109,7 +33,7 @@ function renderExperience() {
                 <h3 class="text-xl font-bold text-slate-200 group-hover:text-cyan-400 transition-colors">
                     ${job.company}
                 </h3>
-                <span class="font-mono text-sm text-slate-500">${job.period}</span>
+                <span class="font-mono text-sm text-slate-500">${job.period.display}</span>
             </div>
 
             <div class="text-slate-400 mb-4 font-medium">${job.role}</div>
@@ -129,11 +53,12 @@ function renderExperience() {
     });
 }
 
-// Render skills
-function renderSkills() {
+// Render skills section
+function renderSkills(skills) {
     const container = document.getElementById('skills-grid');
+    container.innerHTML = '';
 
-    Object.entries(data.skills).forEach(([category, items]) => {
+    Object.entries(skills.categories).forEach(([category, items]) => {
         const skillElement = document.createElement('div');
         skillElement.className = 'p-6 rounded-lg bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-colors';
         skillElement.innerHTML = `
@@ -153,11 +78,12 @@ function renderSkills() {
     });
 }
 
-// Render projects
-function renderProjects() {
+// Render projects section
+function renderProjects(projects) {
     const container = document.getElementById('projects-grid');
+    container.innerHTML = '';
 
-    data.projects.forEach(project => {
+    projects.forEach(project => {
         const projectElement = document.createElement('div');
         projectElement.className = 'group relative p-6 rounded-xl bg-gradient-to-br from-slate-900 to-slate-900/50 border border-slate-800 hover:border-emerald-500/30 transition-all hover:-translate-y-1';
         projectElement.innerHTML = `
@@ -184,19 +110,85 @@ function renderProjects() {
             </p>
 
             <div class="text-xs font-mono text-emerald-500/80 pt-4 border-t border-slate-800">
-                ${project.tech}
+                ${project.tags.join(' • ')}
             </div>
         `;
         container.appendChild(projectElement);
     });
 }
 
+// Render testimonials section
+function renderTestimonials(testimonials) {
+    const container = document.getElementById('testimonials-grid');
+    if (!container || !testimonials || testimonials.length === 0) return;
+
+    container.innerHTML = '';
+
+    testimonials.forEach(testimonial => {
+        const testimonialElement = document.createElement('div');
+        testimonialElement.className = 'p-6 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all';
+        testimonialElement.innerHTML = `
+            <div class="flex items-start gap-4 mb-4">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg">
+                    ${testimonial.name.charAt(0)}
+                </div>
+                <div class="flex-1">
+                    <h4 class="font-bold text-slate-200">${testimonial.name}</h4>
+                    <p class="text-sm text-slate-400">${testimonial.title}</p>
+                    <p class="text-xs text-slate-500">${testimonial.company}</p>
+                </div>
+            </div>
+            <p class="text-slate-400 italic leading-relaxed">
+                "${testimonial.quote}"
+            </p>
+        `;
+        container.appendChild(testimonialElement);
+    });
+}
+
+// Initialize portfolio
+async function initializePortfolio() {
+    try {
+        // Show loading state
+        document.body.classList.add('loading');
+
+        // Load all data
+        portfolioData = await dataLoader.loadAll();
+        console.log('Portfolio data loaded:', portfolioData);
+
+        // Render sections
+        if (portfolioData.personal) {
+            typeText(portfolioData.personal.tagline, 'typed-text');
+        }
+
+        if (portfolioData.experience) {
+            renderExperience(portfolioData.experience);
+        }
+
+        if (portfolioData.skills) {
+            renderSkills(portfolioData.skills);
+        }
+
+        if (portfolioData.projects) {
+            renderProjects(portfolioData.projects);
+        }
+
+        if (portfolioData.testimonials && portfolioData.testimonials.length > 0) {
+            renderTestimonials(portfolioData.testimonials);
+        }
+
+        // Remove loading state
+        document.body.classList.remove('loading');
+
+    } catch (error) {
+        console.error('Failed to initialize portfolio:', error);
+        document.body.innerHTML = '<div class="flex items-center justify-center min-h-screen text-red-500">Failed to load portfolio data. Please check console for errors.</div>';
+    }
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    typeText();
-    renderExperience();
-    renderSkills();
-    renderProjects();
+    initializePortfolio();
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

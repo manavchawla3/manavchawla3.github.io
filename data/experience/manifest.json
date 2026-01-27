@@ -1,0 +1,9 @@
+{
+  "section": "experience",
+  "title": "Experience",
+  "description": "Professional work experience and achievements",
+  "order": 2,
+  "files": ["grab.json", "zetwerk.json", "dockabl.json"],
+  "includeInResume": true,
+  "includeInPortfolio": true
+}

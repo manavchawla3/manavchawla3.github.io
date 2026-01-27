@@ -1,0 +1,12 @@
+{
+  "id": "btech",
+  "degree": "B.Tech in Computer Science",
+  "institution": "SGGSCC, University of Delhi",
+  "period": {
+    "start": "2013-08",
+    "end": "2017-06",
+    "display": "August 2013 – June 2017"
+  },
+  "gpa": "80/100",
+  "order": 1
+}

@@ -1,0 +1,8 @@
+{
+  "categories": {
+    "Core Stack": ["Golang", "Node.js", "JavaScript (ES6+)", "React.js"],
+    "Infrastructure": ["GitLab CI/CD", "Docker", "Terraform", "Temporal"],
+    "Data": ["MySQL", "PostgreSQL", "GraphQL"],
+    "Cloud": ["AWS", "Kubernetes"]
+  }
+}

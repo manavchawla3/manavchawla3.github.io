@@ -1,0 +1,12 @@
+{
+  "id": "higher-secondary",
+  "degree": "Higher Secondary School (XII)",
+  "institution": "Maharaja Agrasen Model School",
+  "period": {
+    "start": "2012-04",
+    "end": "2013-03",
+    "display": "April 2012 – March 2013"
+  },
+  "gpa": "94.6/100",
+  "order": 2
+}

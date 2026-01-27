@@ -1,0 +1,20 @@
+{
+  "id": "zetwerk",
+  "company": "Zetwerk",
+  "location": "Bengaluru",
+  "role": "Senior Software Engineer, Fullstack",
+  "period": {
+    "start": "2019-07",
+    "end": "2020-11",
+    "display": "July 2019 – November 2020"
+  },
+  "tags": ["Node.js", "Angular2", "React.js", "MongoDB", "Terraform", "AWS"],
+  "highlights": [
+    "Spearheaded the re-architecture of AWS infrastructure using Terraform, achieving a 40% reduction in operational costs while enhancing security through improved resource configurations and access policies",
+    "Designed and implemented a reusable boilerplate in Node.js and Express.js, equipped with out-of-the-box features like authentication, resource controllers, and routing, enabling rapid development of microservices. This significantly reduced development time for new services across the organization",
+    "Led the end-to-end design and development of key microservices such as Supplier Onboarding and Enquiry Management Systems, delivering robust and scalable solutions tailored to business needs",
+    "Promoted to Senior Engineer within nine months for consistently exceeding project goals. Led a team of 5 developers, fostering a collaborative environment and mentoring junior team members"
+  ],
+  "order": 2,
+  "featured": true
+}

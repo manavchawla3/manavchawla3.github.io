@@ -152,6 +152,125 @@
             font-weight: bold;
         }
 
+        .skill-item {
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .skill-item strong {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-right: 6px;
+        }
+
+        .education-degree {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+
+        .education-institution {
+            font-size: 13px;
+            color: #5a6c7d;
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .education-gpa {
+            font-size: 12px;
+            color: #7a8c9e;
+            margin-top: 2px;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4px;
+        }
+
+        .education-dates {
+            font-size: 12px;
+            color: #7a8c9e;
+            white-space: nowrap;
+        }
+
+        .project-header {
+            margin-bottom: 6px;
+        }
+
+        .project-header strong {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .project-item p {
+            font-size: 12px;
+            color: #2c3e50;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .project-features {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 6px;
+        }
+
+        .project-features li {
+            padding-left: 15px;
+            position: relative;
+            margin-bottom: 3px;
+            font-size: 12px;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        .project-features li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .project-tags {
+            font-size: 12px;
+            color: #7a8c9e;
+            margin-top: 6px;
+        }
+
+        .project-tags strong {
+            font-weight: 600;
+            color: #5a6c7d;
+        }
+
+        .tech-stack {
+            font-size: 12px;
+            color: #7a8c9e;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .tech-stack strong {
+            font-weight: 600;
+            color: #5a6c7d;
+        }
+
+        .job-title-container {
+            flex: 1;
+        }
+
+        .job-dates {
+            font-size: 11.5px;
+            color: #7a8c9e;
+            white-space: nowrap;
+        }
+
         .experience-item {
             margin-bottom: 12px;
             padding-bottom: 10px;
@@ -433,130 +552,46 @@
 
     <div class="resume">
         <div class="header">
-            <h1 class="name">Manav Chawla</h1>
-            <div class="title">Senior Software Engineer</div>
+            <h1 class="name" id="name">Loading...</h1>
+            <div class="title" id="title">Loading...</div>
             <div class="contact">
-                <div class="contact-item">919711308935</div>
-                <div class="contact-item">manavchawla3@gmail.com</div>
-                <div class="contact-item"><a href="https://manavchawla3.github.io">manavchawla3.github.io</a></div>
-                <div class="contact-item"><a href="https://www.linkedin.com/in/manav-chawla-4955489b/">LinkedIn</a></div>
+                <div class="contact-item" id="phone">Loading...</div>
+                <div class="contact-item" id="email">Loading...</div>
+                <div class="contact-item" id="location">Loading...</div>
+                <div class="contact-item"><a href="#" id="linkedin-link">LinkedIn</a></div>
+                <div class="contact-item"><a href="#" id="github-link">GitHub</a></div>
             </div>
         </div>
 
         <div class="content">
-            <div class="summary">
-                Senior Backend Engineer with 9+ years building and scaling distributed systems for fintech and e-commerce. Deep expertise in Go (Golang), Temporal workflow orchestration, and GitOps on AWS (Terraform, CI/CD). Proven record of cutting cloud spend by 40% and delivering 99.99% reliable, mission-critical platforms through RFC-driven design, high-throughput APIs, and event-driven architectures. Trusted technical leader who ships secure, scalable services and mentors teams.
+            <div class="summary" id="summary">
+                Loading...
             </div>
 
             <div class="section">
                 <h2 class="section-title">Skills</h2>
-                <ul class="skills-list">
-                    <li>Golang</li>
-                    <li>Node.js</li>
-                    <li>JavaScript (ES6+)</li>
-                    <li>React.js</li>
-                    <li>GitLab CI/CD</li>
-                    <li>Docker</li>
-                    <li>Terraform</li>
-                    <li>Temporal</li>
-                    <li>MySQL</li>
-                    <li>PostgreSQL</li>
-                    <li>GraphQL</li>
-                </ul>
+                <div id="skills-list"></div>
             </div>
 
             <div class="section experience-section">
                 <h2 class="section-title">Professional Experience</h2>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Senior Software Engineer, Backend</div>
-                        <div class="job-date">November 2020 – Present</div>
-                    </div>
-                    <div class="company">Grab, Bengaluru</div>
-                    <ul class="responsibilities">
-                        <li>Architected and implemented a centralized Graph Orchestration Platform using Temporal, enabling teams to build complex multi-step business workflows as DAG-based durable executions, 
-                            improving reliability and scalability across core systems.</li>
-                        <li>Improved reliability of mission-critical distributed workflows by building in durable execution, retries, and state recovery, achieving 99.99% uptime for core systems</li>
-                        <li>Designed and delivered a scalable Configuration Management Service, migrating legacy database-driven configs to a GitOps-based Configuration-as-Code architecture, enabling secure RBAC governance, audit-ready compliance, 
-                            and version-controlled management across teams.</li>
-                        <li>Implemented atomic updates and instant rollback mechanisms, reducing configuration-related incidents by 60% while achieving sub-millisecond read latency for high-performance, reliable production systems.</li>
-                        <li>Re-engineered high-throughput deductions logic supporting 228K+ transactions, cutting batch processing runtime by 50%+ (6 hours → 2.5 hours)</li>
-                        <li>Co-led the end-to-end launch of the in-house PCA ID Taralite loan product, replacing a costly third-party dependency (Julo) and optimizing ongoing operational spend</li>
-                    </ul>
-                    <div class="tech-stack">Technology Stack: Golang, Terraform, Temporal, n8n, MySQL, k8s</div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Senior Software Engineer, Fullstack</div>
-                        <div class="job-date">July 2019 – November 2020</div>
-                    </div>
-                    <div class="company">Zetwerk, Bengaluru</div>
-                    <ul class="responsibilities">
-                        <li>Spearheaded the re-architecture of AWS infrastructure using Terraform, achieving a 40% reduction in operational costs while enhancing security through improved resource configurations and access policies</li>
-                        <li>Designed and implemented a reusable boilerplate in Node.js and Express.js, equipped with out-of-the-box features like authentication, resource controllers, and routing, enabling rapid development of microservices. This significantly reduced development time for new services across the organization</li>
-                        <li>Led the end-to-end design and development of key microservices such as Supplier Onboarding and Enquiry Management Systems, delivering robust and scalable solutions tailored to business needs</li>
-                        <li>Promoted to Senior Engineer within nine months for consistently exceeding project goals. Led a team of 5 developers, fostering a collaborative environment and mentoring junior team members</li>
-                    </ul>
-                    <div class="tech-stack">Technology Stack: Node.js, Angular2, React.js, MongoDB, Terraform, AWS</div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="job-header">
-                        <div class="job-title">Software Developer</div>
-                        <div class="job-date">July 2017 – April 2019</div>
-                    </div>
-                    <div class="company">Dockabl</div>
-                    <ul class="responsibilities">
-                        <li>Transitioned from frontend to full-stack development within 6–7 months, contributing to both frontend features (OKR tracking, 360 reviews, performance management) and backend APIs (peer feedback, review system)</li>
-                        <li>Delivered a complete feature module for Flipkart in 15 days, showcasing adaptability and rapid execution in high-pressure environments</li>
-                        <li>Played a key role in establishing the infrastructure from scratch, including AWS resource management, security configurations, and domain provisioning</li>
-                        <li>Contributed to the first lines of code for Dockabl's employee performance management platform, driving development of core modules in a fast-paced startup</li>
-                    </ul>
-                    <div class="tech-stack">Technology Stack: Laravel, PHP, Node.js, AngularJS, HTML, CSS, JavaScript, jQuery, AWS, PostgreSQL, MySQL</div>
-                </div>
+                <div id="experience-list"></div>
             </div>
 
             <div class="section">
-                <h2 class="section-title">Personal Projects</h2>
-                <div class="project-item">
-                    <div class="project-name">OwneyMail</div>
-                    <ul class="project-description">
-                        <li>High-throughput, multi-tenant email marketing engine built with NodeJs and queue-backed delivery for reliable, low-latency sends</li>
-                        <li>Dynamic template rendering, audience segmentation, and rate-limited dispatch with retries, DLQs, and idempotent APIs</li>
-                        <li>Event pipeline for bounces, complaints, opens/clicks, and suppression lists with GDPR-compliant unsubscribe flows</li>
-                    </ul>
-                    <div class="tech-stack">Technology Stack: NodeJs, ReactJs, Docker, AWS SQS/SNS</div>
-                </div>
-                <div class="project-item">
-                    <div class="project-name">BuildSeeker</div>
-                    <ul class="project-description">
-                        <li>Real-time aggregator that normalizes PC component SKUs, prices, and stock across global vendors with currency/region handling</li>
-                        <li>Resilient crawler pipeline with rotating proxies, exponential backoff, and vendor-specific parsers; incremental updates and caching</li>
-                        <li>User features: watchlists, price-drop alerts, vendor scorecards, and search/filtering over a normalized catalog</li>
-                    </ul>
-                    <div class="tech-stack">Technology Stack: Laravel, PostgreSQL, Redis, GraphQL, Next.js</div>
-                </div>
+                <h2 class="section-title">Projects</h2>
+                <div id="projects-list"></div>
             </div>
 
             <div class="section">
                 <h2 class="section-title">Education</h2>
-                <div class="education-item">
-                    <div class="degree">B.Tech in Computer Science</div>
-                    <div class="school">SGGSCC, University of Delhi</div>
-                    <div class="education-detail">August 2013 – June 2017 | GPA: 80/100</div>
-                </div>
-                <div class="education-item">
-                    <div class="degree">Higher Secondary School (XII)</div>
-                    <div class="school">Maharaja Agrasen Model School</div>
-                    <div class="education-detail">April 2012 – March 2013 | GPA: 94.6/100</div>
-                </div>
+                <div id="education-list"></div>
             </div>
-
         </div>
     </div>
 
+    <script src="assets/js/data-loader.js"></script>
+    <script src="assets/js/resume.js"></script>
     <script>
         async function downloadPDF() {
             const button = document.getElementById('downloadBtn');

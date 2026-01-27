@@ -36,6 +36,7 @@
             <div class="flex gap-6 text-sm">
                 <a href="#work" class="hover:text-cyan-400 transition-colors">/work</a>
                 <a href="#projects" class="hover:text-cyan-400 transition-colors">/projects</a>
+                <a href="#testimonials" class="hover:text-cyan-400 transition-colors">/testimonials</a>
                 <a href="#contact" class="hover:text-cyan-400 transition-colors">/contact</a>
             </div>
         </div>
@@ -151,6 +152,21 @@
           </div>
         </section>
 
+        <!-- Testimonials -->
+        <section id="testimonials" class="mb-24">
+          <div class="flex items-center gap-3 mb-12">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-amber-500">
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                </svg>
+                <h2 class="text-2xl font-bold text-slate-100">peer_reviews</h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6" id="testimonials-grid">
+              <!-- Testimonials will be inserted here by JavaScript -->
+          </div>
+        </section>
+
         <!-- Footer / Connect -->
         <section id="contact" class="py-12 border-t border-slate-900 text-center">
           <h2 class="text-2xl font-bold text-slate-100 mb-6">Initialize Handshake</h2>
@@ -176,6 +192,7 @@
 
     </main>
 
+    <script src="assets/js/data-loader.js"></script>
     <script src="assets/js/portfolio.js"></script>
 </body>
 </html>

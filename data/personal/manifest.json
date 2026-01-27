@@ -1,0 +1,9 @@
+{
+  "section": "personal",
+  "title": "Personal Information",
+  "description": "Basic personal and contact information",
+  "order": 1,
+  "dataFile": "info.json",
+  "includeInResume": true,
+  "includeInPortfolio": true
+}

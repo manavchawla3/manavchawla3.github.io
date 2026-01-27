@@ -1,0 +1,9 @@
+{
+  "section": "projects",
+  "title": "Projects",
+  "description": "Notable projects and side work",
+  "order": 4,
+  "files": ["owneymail.json", "buildseeker.json"],
+  "includeInResume": true,
+  "includeInPortfolio": true
+}

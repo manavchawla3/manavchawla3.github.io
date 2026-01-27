@@ -1,0 +1,20 @@
+{
+  "id": "dockabl",
+  "company": "Dockabl",
+  "location": "",
+  "role": "Software Developer",
+  "period": {
+    "start": "2017-07",
+    "end": "2019-04",
+    "display": "July 2017 – April 2019"
+  },
+  "tags": ["Laravel", "PHP", "Node.js", "AngularJS", "HTML", "CSS", "JavaScript", "jQuery", "AWS", "PostgreSQL", "MySQL"],
+  "highlights": [
+    "Transitioned from frontend to full-stack development within 6–7 months, contributing to both frontend features (OKR tracking, 360 reviews, performance management) and backend APIs (peer feedback, review system)",
+    "Delivered a complete feature module for Flipkart in 15 days, showcasing adaptability and rapid execution in high-pressure environments",
+    "Played a key role in establishing the infrastructure from scratch, including AWS resource management, security configurations, and domain provisioning",
+    "Contributed to the first lines of code for Dockabl's employee performance management platform, driving development of core modules in a fast-paced startup"
+  ],
+  "order": 3,
+  "featured": true
+}
