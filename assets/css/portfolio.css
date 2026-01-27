@@ -99,6 +99,37 @@ body {
     border-radius: 4px;
 }
 
+/* Experience expand/collapse */
+.experience-highlight {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.experience-highlight-hidden {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.experience-toggle-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.experience-toggle-btn:focus {
+    outline: 2px solid #06b6d4;
+    outline-offset: 2px;
+}
+
+.experience-toggle-btn .toggle-icon {
+    transition: transform 0.3s ease;
+}
+
 @media (max-width: 640px) {
     .testimonial-card {
         min-width: 300px;

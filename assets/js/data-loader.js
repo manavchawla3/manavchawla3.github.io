@@ -32,6 +32,13 @@ class DataLoader {
     }
 
     /**
+     * Load manifest for a section
+     */
+    async loadManifest(section) {
+        return await this.loadJSON(`${this.basePath}/${section}/manifest.json`);
+    }
+
+    /**
      * Load all files from a directory
      */
     async loadDirectory(directory, files) {
@@ -53,8 +60,12 @@ class DataLoader {
      * Load all experience entries
      */
     async loadExperience() {
-        const files = ['grab.json', 'zetwerk.json', 'dockabl.json'];
-        const experiences = await this.loadDirectory('experience', files);
+        const manifest = await this.loadManifest('experience');
+        if (!manifest || !manifest.files) {
+            console.error('Experience manifest not found or invalid');
+            return [];
+        }
+        const experiences = await this.loadDirectory('experience', manifest.files);
         return experiences.sort((a, b) => a.order - b.order);
     }
 
@@ -62,8 +73,12 @@ class DataLoader {
      * Load all projects
      */
     async loadProjects() {
-        const files = ['owneymail.json', 'buildseeker.json', 'owneymail-2.json'];
-        const projects = await this.loadDirectory('projects', files);
+        const manifest = await this.loadManifest('projects');
+        if (!manifest || !manifest.files) {
+            console.error('Projects manifest not found or invalid');
+            return [];
+        }
+        const projects = await this.loadDirectory('projects', manifest.files);
         return projects.sort((a, b) => a.order - b.order);
     }
 
@@ -71,8 +86,12 @@ class DataLoader {
      * Load all education entries
      */
     async loadEducation() {
-        const files = ['btech.json', 'higher-secondary.json'];
-        const education = await this.loadDirectory('education', files);
+        const manifest = await this.loadManifest('education');
+        if (!manifest || !manifest.files) {
+            console.error('Education manifest not found or invalid');
+            return [];
+        }
+        const education = await this.loadDirectory('education', manifest.files);
         return education.sort((a, b) => a.order - b.order);
     }
 

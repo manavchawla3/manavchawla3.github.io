@@ -23,9 +23,15 @@ function renderExperience(experiences) {
     const container = document.getElementById('experience-list');
     container.innerHTML = '';
 
-    experiences.forEach(job => {
+    experiences.forEach((job, jobIndex) => {
         const jobElement = document.createElement('div');
         jobElement.className = 'relative pl-8 group';
+
+        const PREVIEW_COUNT = 3;
+        const hasMoreHighlights = job.highlights.length > PREVIEW_COUNT;
+        const visibleHighlights = hasMoreHighlights ? job.highlights.slice(0, PREVIEW_COUNT) : job.highlights;
+        const hiddenHighlights = hasMoreHighlights ? job.highlights.slice(PREVIEW_COUNT) : [];
+
         jobElement.innerHTML = `
             <div class="absolute -left-[5px] top-2 w-[9px] h-[9px] rounded-full bg-slate-800 group-hover:bg-cyan-400 transition-colors border border-slate-950"></div>
 
@@ -38,10 +44,22 @@ function renderExperience(experiences) {
 
             <div class="text-slate-400 mb-4 font-medium">${job.role}</div>
             <ul class="text-slate-400 leading-relaxed mb-4 max-w-2xl space-y-2 list-disc list-inside">
-                ${job.highlights.map(highlight => `
-                    <li>${highlight}</li>
+                ${visibleHighlights.map(highlight => `
+                    <li class="experience-highlight">${highlight}</li>
+                `).join('')}
+                ${hiddenHighlights.map(highlight => `
+                    <li class="experience-highlight experience-highlight-collapsible experience-highlight-hidden" data-job-index="${jobIndex}">${highlight}</li>
                 `).join('')}
             </ul>
+
+            ${hasMoreHighlights ? `
+                <button class="experience-toggle-btn text-sm text-cyan-400 hover:text-cyan-300 transition-colors mb-4 flex items-center gap-2" data-job-index="${jobIndex}">
+                    <span class="toggle-text">Show more</span>
+                    <svg class="toggle-icon w-4 h-4 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            ` : ''}
 
             <div class="flex flex-wrap gap-2">
                 ${job.tags.map(tag => `
@@ -52,6 +70,32 @@ function renderExperience(experiences) {
             </div>
         `;
         container.appendChild(jobElement);
+    });
+
+    // Add click handlers for expand/collapse buttons
+    document.querySelectorAll('.experience-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const jobIndex = this.getAttribute('data-job-index');
+            const collapsibleItems = document.querySelectorAll(`.experience-highlight-collapsible[data-job-index="${jobIndex}"]`);
+            const toggleText = this.querySelector('.toggle-text');
+            const toggleIcon = this.querySelector('.toggle-icon');
+
+            const isExpanded = this.classList.contains('expanded');
+
+            if (isExpanded) {
+                // Collapse
+                collapsibleItems.forEach(item => item.classList.add('experience-highlight-hidden'));
+                toggleText.textContent = 'Show more';
+                toggleIcon.style.transform = 'rotate(0deg)';
+                this.classList.remove('expanded');
+            } else {
+                // Expand
+                collapsibleItems.forEach(item => item.classList.remove('experience-highlight-hidden'));
+                toggleText.textContent = 'Show less';
+                toggleIcon.style.transform = 'rotate(180deg)';
+                this.classList.add('expanded');
+            }
+        });
     });
 }
 
