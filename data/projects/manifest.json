@@ -3,7 +3,7 @@
   "title": "Projects",
   "description": "Notable projects and side work",
   "order": 4,
-  "files": ["owneymail.json", "buildseeker.json", "owneymail-2.json"],
+  "files": ["owneymail.json", "buildseeker.json"],
   "includeInResume": true,
   "includeInPortfolio": true
 }
