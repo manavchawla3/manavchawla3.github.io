@@ -62,7 +62,7 @@ class DataLoader {
      * Load all projects
      */
     async loadProjects() {
-        const files = ['owneymail.json', 'buildseeker.json'];
+        const files = ['owneymail.json', 'buildseeker.json', 'owneymail-2.json'];
         const projects = await this.loadDirectory('projects', files);
         return projects.sort((a, b) => a.order - b.order);
     }
