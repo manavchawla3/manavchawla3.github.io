@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manav Chawla - Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.4;
+            color: #2c3e50;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .resume {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 18px 35px 12px;
+            border-bottom: 2px solid #2c3e50;
+        }
+
+        .name {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: #5a6c7d;
+            letter-spacing: 0.3px;
+        }
+
+        .contact {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #5a6c7d;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-item:before {
+            content: "•";
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .contact a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact a:hover {
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 16px 35px 20px;
+        }
+
+        .summary {
+            margin-bottom: 22px;
+            line-height: 1.5;
+            color: #2c3e50;
+            font-size: 13px;
+            text-align: justify;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 35px;
+            height: 2px;
+            background: #2c3e50;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 11px;
+            font-size: 13px;
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 14px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .skills-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .experience-item {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .job-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: -0.2px;
+        }
+
+        .job-date {
+            font-size: 11.5px;
+            color: #5a6c7d;
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .company {
+            font-size: 13px;
+            color: #5a6c7d;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding-left: 15px;
+            position: relative;
+            margin-bottom: 4px;
+            font-size: 13px;
+            color: #2c3e50;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .responsibilities li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .education-item, .project-item {
+            margin-bottom: 11px;
+            padding-bottom: 9px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .education-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .degree, .project-name {
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+
+        .school {
+            font-size: 13px;
+            color: #5a6c7d;
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .education-detail {
+            font-size: 12px;
+            color: #7a8c9e;
+            margin-top: 2px;
+        }
+
+        .project-description {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-description li {
+            padding-left: 15px;
+            position: relative;
+            margin-bottom: 3px;
+            font-size: 12px;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+
+        .project-description li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .controls {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            display: flex;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .btn {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(44, 62, 80, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-download {
+            background: #1a1a1a;
+        }
+
+        .btn-download:hover {
+            box-shadow: 0 4px 12px rgba(26, 26, 26, 0.3);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .resume {
+                box-shadow: none;
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .controls {
+                display: none !important;
+            }
+
+            .header {
+                background: #ffffff !important;
+                border-bottom: 2px solid #2c3e50 !important;
+                padding: 16px 35px 12px !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .content {
+                padding: 14px 35px 16px !important;
+            }
+
+            .section {
+                margin-bottom: 18px !important;
+            }
+
+            .section:last-child {
+                margin-bottom: 0 !important;
+            }
+
+            .section-title {
+                margin-bottom: 8px !important;
+                padding-bottom: 4px !important;
+                page-break-after: avoid !important;
+            }
+
+            .section-title:after {
+                background: #2c3e50 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .summary {
+                border-bottom: 1px solid #e8e8e8 !important;
+                margin-bottom: 18px !important;
+                padding: 9px 0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .education-item, .project-item {
+                margin-bottom: 10px !important;
+                padding-bottom: 8px !important;
+                border-bottom: 1px solid #e8e8e8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .experience-item {
+                margin-bottom: 11px !important;
+                padding-bottom: 9px !important;
+                border-bottom: 1px solid #e8e8e8 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .job-header, .job-title, .company {
+                page-break-after: avoid !important;
+            }
+
+            .responsibilities li, .project-description li {
+                page-break-inside: avoid !important;
+                page-break-before: auto !important;
+            }
+
+            .responsibilities li {
+                margin-bottom: 4px !important;
+            }
+
+            .project-description li {
+                margin-bottom: 3px !important;
+            }
+
+            .responsibilities li:before,
+            .skills-list li:before,
+            .project-description li:before {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @page {
+            margin: 0.3in 0.4in 0.48in 0.4in;
+            size: letter;
+        }
+
+        .tech-stack {
+            font-size: 11.5px;
+            color: #7a8c9e;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <button class="btn" onclick="window.print()">🖨️ Print</button>
+        <button class="btn btn-download" id="downloadBtn" onclick="downloadPDF()">📄 Download PDF</button>
+    </div>
+
+    <div class="resume">
+        <div class="header">
+            <h1 class="name">Manav Chawla</h1>
+            <div class="title">Senior Software Engineer</div>
+            <div class="contact">
+                <div class="contact-item">919711308935</div>
+                <div class="contact-item">manavchawla3@gmail.com</div>
+                <div class="contact-item"><a href="https://manavchawla3.github.io">manavchawla3.github.io</a></div>
+                <div class="contact-item"><a href="https://www.linkedin.com/in/manav-chawla-4955489b/">LinkedIn</a></div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="summary">
+                Senior Backend Engineer with 9+ years building and scaling distributed systems for fintech and e-commerce. Deep expertise in Go (Golang), Temporal workflow orchestration, and GitOps on AWS (Terraform, CI/CD). Proven record of cutting cloud spend by 40% and delivering 99.99% reliable, mission-critical platforms through RFC-driven design, high-throughput APIs, and event-driven architectures. Trusted technical leader who ships secure, scalable services and mentors teams.
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Skills</h2>
+                <ul class="skills-list">
+                    <li>Golang</li>
+                    <li>Node.js</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React.js</li>
+                    <li>GitLab CI/CD</li>
+                    <li>Docker</li>
+                    <li>Terraform</li>
+                    <li>Temporal</li>
+                    <li>MySQL</li>
+                    <li>PostgreSQL</li>
+                    <li>GraphQL</li>
+                </ul>
+            </div>
+
+            <div class="section experience-section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-title">Senior Software Engineer, Backend</div>
+                        <div class="job-date">November 2020 – Present</div>
+                    </div>
+                    <div class="company">Grab, Bengaluru</div>
+                    <ul class="responsibilities">
+                        <li>Architected and implemented a centralized Graph Orchestration Platform using Temporal, enabling teams to build complex multi-step business workflows as DAG-based durable executions, 
+                            improving reliability and scalability across core systems.</li>
+                        <li>Improved reliability of mission-critical distributed workflows by building in durable execution, retries, and state recovery, achieving 99.99% uptime for core systems</li>
+                        <li>Designed and delivered a scalable Configuration Management Service, migrating legacy database-driven configs to a GitOps-based Configuration-as-Code architecture, enabling secure RBAC governance, audit-ready compliance, 
+                            and version-controlled management across teams.</li>
+                        <li>Implemented atomic updates and instant rollback mechanisms, reducing configuration-related incidents by 60% while achieving sub-millisecond read latency for high-performance, reliable production systems.</li>
+                        <li>Re-engineered high-throughput deductions logic supporting 228K+ transactions, cutting batch processing runtime by 50%+ (6 hours → 2.5 hours)</li>
+                        <li>Co-led the end-to-end launch of the in-house PCA ID Taralite loan product, replacing a costly third-party dependency (Julo) and optimizing ongoing operational spend</li>
+                    </ul>
+                    <div class="tech-stack">Technology Stack: Golang, Terraform, Temporal, n8n, MySQL, k8s</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-title">Senior Software Engineer, Fullstack</div>
+                        <div class="job-date">July 2019 – November 2020</div>
+                    </div>
+                    <div class="company">Zetwerk, Bengaluru</div>
+                    <ul class="responsibilities">
+                        <li>Spearheaded the re-architecture of AWS infrastructure using Terraform, achieving a 40% reduction in operational costs while enhancing security through improved resource configurations and access policies</li>
+                        <li>Designed and implemented a reusable boilerplate in Node.js and Express.js, equipped with out-of-the-box features like authentication, resource controllers, and routing, enabling rapid development of microservices. This significantly reduced development time for new services across the organization</li>
+                        <li>Led the end-to-end design and development of key microservices such as Supplier Onboarding and Enquiry Management Systems, delivering robust and scalable solutions tailored to business needs</li>
+                        <li>Promoted to Senior Engineer within nine months for consistently exceeding project goals. Led a team of 5 developers, fostering a collaborative environment and mentoring junior team members</li>
+                    </ul>
+                    <div class="tech-stack">Technology Stack: Node.js, Angular2, React.js, MongoDB, Terraform, AWS</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div class="job-title">Software Developer</div>
+                        <div class="job-date">July 2017 – April 2019</div>
+                    </div>
+                    <div class="company">Dockabl</div>
+                    <ul class="responsibilities">
+                        <li>Transitioned from frontend to full-stack development within 6–7 months, contributing to both frontend features (OKR tracking, 360 reviews, performance management) and backend APIs (peer feedback, review system)</li>
+                        <li>Delivered a complete feature module for Flipkart in 15 days, showcasing adaptability and rapid execution in high-pressure environments</li>
+                        <li>Played a key role in establishing the infrastructure from scratch, including AWS resource management, security configurations, and domain provisioning</li>
+                        <li>Contributed to the first lines of code for Dockabl's employee performance management platform, driving development of core modules in a fast-paced startup</li>
+                    </ul>
+                    <div class="tech-stack">Technology Stack: Laravel, PHP, Node.js, AngularJS, HTML, CSS, JavaScript, jQuery, AWS, PostgreSQL, MySQL</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Personal Projects</h2>
+                <div class="project-item">
+                    <div class="project-name">OwneyMail</div>
+                    <ul class="project-description">
+                        <li>High-throughput, multi-tenant email marketing engine built with NodeJs and queue-backed delivery for reliable, low-latency sends</li>
+                        <li>Dynamic template rendering, audience segmentation, and rate-limited dispatch with retries, DLQs, and idempotent APIs</li>
+                        <li>Event pipeline for bounces, complaints, opens/clicks, and suppression lists with GDPR-compliant unsubscribe flows</li>
+                    </ul>
+                    <div class="tech-stack">Technology Stack: NodeJs, ReactJs, Docker, AWS SQS/SNS</div>
+                </div>
+                <div class="project-item">
+                    <div class="project-name">BuildSeeker</div>
+                    <ul class="project-description">
+                        <li>Real-time aggregator that normalizes PC component SKUs, prices, and stock across global vendors with currency/region handling</li>
+                        <li>Resilient crawler pipeline with rotating proxies, exponential backoff, and vendor-specific parsers; incremental updates and caching</li>
+                        <li>User features: watchlists, price-drop alerts, vendor scorecards, and search/filtering over a normalized catalog</li>
+                    </ul>
+                    <div class="tech-stack">Technology Stack: Laravel, PostgreSQL, Redis, GraphQL, Next.js</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="degree">B.Tech in Computer Science</div>
+                    <div class="school">SGGSCC, University of Delhi</div>
+                    <div class="education-detail">August 2013 – June 2017 | GPA: 80/100</div>
+                </div>
+                <div class="education-item">
+                    <div class="degree">Higher Secondary School (XII)</div>
+                    <div class="school">Maharaja Agrasen Model School</div>
+                    <div class="education-detail">April 2012 – March 2013 | GPA: 94.6/100</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        async function downloadPDF() {
+            const button = document.getElementById('downloadBtn');
+            const originalText = button.innerHTML;
+
+            try {
+                // Disable button and show loading state
+                button.disabled = true;
+                button.innerHTML = '⏳ Generating PDF...';
+
+                // Get the resume element
+                const element = document.querySelector('.resume');
+
+                // Clone the element to modify it without affecting the display
+                const clone = element.cloneNode(true);
+
+                // Configure PDF options
+                const opt = {
+                    margin: [0.3, 0.4, 0.48, 0.4], // top, right, bottom, left in inches
+                    filename: 'Manav_Chawla_Resume.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        letterRendering: true,
+                        scrollY: 0,
+                        scrollX: 0,
+                        windowHeight: element.scrollHeight + 100
+                    },
+                    jsPDF: {
+                        unit: 'in',
+                        format: 'letter',
+                        orientation: 'portrait',
+                        compress: true
+                    },
+                    pagebreak: {
+                        mode: ['css', 'legacy'],
+                        avoid: ['.section-title', '.job-header', '.job-title']
+                    }
+                };
+
+                // Generate PDF
+                await html2pdf().set(opt).from(clone).save();
+
+                // Success message
+                button.innerHTML = '✓ Downloaded!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2000);
+
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                button.innerHTML = '✗ Error';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
