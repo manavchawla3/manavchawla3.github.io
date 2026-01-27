@@ -1,0 +1,30 @@
+{
+  "name": "portfolio-resume",
+  "version": "1.0.0",
+  "description": "Configurable portfolio and resume system with manifest-based data",
+  "scripts": {
+    "validate": "node scripts/validate.js",
+    "refresh": "bash scripts/refresh.sh",
+    "refresh:commit": "bash scripts/refresh.sh --commit",
+    "refresh:push": "bash scripts/refresh.sh --push",
+    "setup-hooks": "chmod +x .git/hooks/pre-commit && echo 'Git hooks installed'",
+    "serve": "python3 -m http.server 8000",
+    "test": "npm run validate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manavchawla3/manavchawla3.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "resume",
+    "manifest",
+    "static-site"
+  ],
+  "author": "Manav Chawla <manavchawla3@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

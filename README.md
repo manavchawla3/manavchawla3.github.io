@@ -1,158 +1,278 @@
-# Resume Builder
+# Portfolio & Resume System
 
-A professional, compact HTML resume template with clean typography and consistent styling throughout. Optimized to fit within 2 pages while maintaining excellent readability.
+A configurable portfolio and resume system with manifest-based data architecture. Both sites share the same data source, making it easy to maintain consistency.
 
-## Features
+## 🚀 Quick Start
 
-- **Compact & Efficient**: Fits comfortably in 2 pages with proper spacing
-- **Consistent Design**: All sections (experience, education, projects) use the same clean list style
-- **Modern Typography**: Uses Inter font family for excellent readability
-- **Conservative Color Palette**: Black/navy (#2c3e50, #1a1a1a) minimalist scheme
-- **Direct PDF Download**: One-click PDF generation without browser headers/footers
-- **html2pdf.js Integration**: Client-side PDF generation with perfect styling preservation
-- **Single-File Solution**: All styles and functionality in one HTML file
-- **ATS-Compliant**: Clean structure that passes automated applicant tracking systems
+### Prerequisites
+- Node.js 14+ (for validation scripts)
+- Git
+- Python 3 (for local server)
 
-## Usage
+### Setup
+```bash
+# Install git hooks
+npm run setup-hooks
 
-### Viewing the Resume
+# Start local development server
+npm run serve
+# Visit http://localhost:8000
+```
 
-Simply open [index.html](index.html) in any modern web browser:
+## 📁 Project Structure
+
+```
+.
+├── index.html              # Portfolio landing page (terminal theme)
+├── resume.html             # Professional resume with PDF download
+├── assets/
+│   ├── css/
+│   │   └── portfolio.css
+│   └── js/
+│       ├── data-loader.js  # Central data loading utility
+│       ├── portfolio.js    # Portfolio renderer
+│       └── resume.js       # Resume renderer
+├── data/                   # All content manifests
+│   ├── personal/
+│   │   ├── manifest.json
+│   │   └── info.json
+│   ├── experience/
+│   │   ├── manifest.json
+│   │   ├── grab.json
+│   │   ├── zetwerk.json
+│   │   └── dockabl.json
+│   ├── projects/
+│   │   ├── manifest.json
+│   │   ├── owneymail.json
+│   │   └── buildseeker.json
+│   ├── education/
+│   │   ├── manifest.json
+│   │   ├── btech.json
+│   │   └── higher-secondary.json
+│   ├── skills/
+│   │   ├── manifest.json
+│   │   └── categories.json
+│   └── testimonials/
+│       ├── manifest.json
+│       └── list.json
+└── scripts/
+    ├── validate.js         # Validation script
+    └── refresh.sh          # Refresh & publish script
+```
+
+## 🛠️ Commands
+
+### `/validate` - Validate Content
+Validates all manifest files for correctness and consistency.
 
 ```bash
-open index.html
+npm run validate
 ```
 
-### Generating PDF
+**What it checks:**
+- ✓ JSON syntax validity
+- ✓ Required fields presence
+- ✓ Data type correctness
+- ✓ Date format validation
+- ✓ Duplicate ID detection
+- ✓ URL format validation
+- ✓ Email format validation
+- ✓ Manifest consistency
 
-You now have two options:
+### `/refresh` - Refresh & Publish
+Validates content and optionally commits and publishes to GitHub.
 
-#### Option 1: Direct PDF Download (Recommended)
-1. Open the resume in your browser
-2. Click the green "📄 Download PDF" button
-3. The PDF will be generated and downloaded automatically
-4. **No browser headers/footers** - clean, professional output
+```bash
+# Validate only
+npm run refresh
 
-#### Option 2: Browser Print
-1. Open the resume in your browser
-2. Click the "🖨️ Print" button (or use Ctrl/Cmd + P)
-3. In the print dialog, select "Save as PDF" as the destination
+# Validate and commit
+npm run refresh -- -c -m "Update experience"
 
-**Note**: The direct download option is recommended as it produces cleaner PDFs without browser-added headers and footers.
-
-### Customization
-
-Edit the [index.html](index.html) file to customize:
-
-- **Personal Information**: Update name, title, contact details in the header section
-- **Summary**: Modify the professional summary text
-- **Skills**: Add or remove skills in the skills list
-- **Experience**: Update job titles, companies, dates, and responsibilities
-- **Education**: Modify degrees and educational background
-- **Projects**: Add or update project descriptions
-
-### Styling
-
-All styles are contained in the `<style>` section of the HTML file. Key customization points:
-
-- **Color Scheme** (Minimalist/Conservative):
-  - Primary text: #1a1a1a (near black)
-  - Secondary text: #2c3e50 (dark navy)
-  - Muted text: #5a6c7d (gray-blue)
-  - Accent: #2c3e50 (used for borders and underlines)
-  - Background: #ffffff (white) with subtle #fafafa boxes
-- **Typography**:
-  - Font: Inter (loaded from Google Fonts)
-  - Name: 36px, weight 700
-  - Section titles: 14px, uppercase, letter-spacing 1.5px
-  - Body text: 12-13px
-  - Line height: 1.5-1.65 for readability
-- **Spacing**: Generous margins optimized for professional appearance
-  - Section spacing: 32px between major sections
-  - Item spacing: 24-28px between experience items
-  - Padding: 35-45px content padding
-- **Visual Elements**:
-  - Clean 50px underlines beneath section titles
-  - Subtle borders (#e8e8e8) for separators
-  - Left-accent bars (#2c3e50) on education/project items
-  - Bullet points instead of icons/graphics
-- **Print Layout**:
-  - All colors preserved with `-webkit-print-color-adjust: exact`
-  - Page margins: 0.5in/0.6in for balanced layout
-  - Smart page breaks to avoid splitting sections
-
-## Browser Compatibility
-
-Works with all modern browsers:
-- Chrome/Edge (recommended for best PDF output)
-- Firefox
-- Safari
-
-## Project Structure
-
-```
-resume-builder/
-├── index.html      # Main resume file (HTML + CSS + JS)
-└── README.md       # This file
+# Validate, commit, and push to GitHub
+npm run refresh -- -p -m "Add new project"
 ```
 
-## Tips
+**Options:**
+- `-c, --commit` - Commit changes after validation
+- `-p, --push` - Commit and push changes to GitHub
+- `-m, --message <msg>` - Commit message (required with --commit or --push)
+- `-h, --help` - Show help message
 
-- Use Chrome or Edge for the best PDF export quality
-- **PDF output now matches HTML view exactly** - all colors, gradients, and styles are preserved
-- Test your changes by printing to PDF to ensure proper formatting
-- The design is optimized for US Letter size paper (8.5" x 11")
-- Fits comfortably in 2 pages with current content density
-- If you need more space, reduce font sizes in the CSS (look for font-size properties)
-- All print colors are preserved using `print-color-adjust: exact`
+**Examples:**
+```bash
+# Just validate
+npm run refresh
 
-## Design Philosophy
+# Commit changes
+npm run refresh -- -c -m "Update skills section"
 
-This template follows minimalist resume principles:
-
-- **Content over decoration**: Focus on achievements, not fancy graphics
-- **Professional restraint**: Conservative palette suitable for traditional industries (law, finance, medicine, tech)
-- **Abundant white space**: Easier to scan and read, appears more confident
-- **Single font family**: Clean, consistent typography throughout
-- **Bullet points only**: No icons, charts, or skill bars that clutter ATS systems
-- **Clean visual hierarchy**: Bold headers and subtle separators guide the eye
-- **Above-the-fold priority**: Most important information in the first third
-
-### Differences from Typical Resumes
-
-- **No colored backgrounds or gradients**: Clean white background is more professional
-- **No emoji or icons**: Text-only contact info for ATS compatibility
-- **Generous spacing**: 32px+ between sections vs typical 10-15px
-- **Larger fonts**: 12-13px body text vs cramped 10px
-- **Quality over quantity**: Better to have 2 pages of readable content than 1 page of tiny text
-- **Minimal decoration**: 50px section underlines are the only graphical element
-
-## Technical Details
-
-### PDF Generation
-
-The resume uses [html2pdf.js](https://github.com/eKoopmans/html2pdf.js) for client-side PDF generation:
-
-- **No server required**: Everything runs in the browser
-- **High quality**: 2x scale rendering for crisp text and graphics
-- **Smart page breaks**: Automatically avoids breaking content mid-section
-- **Perfect styling**: Preserves all colors, gradients, fonts, and layout
-- **Fast**: Generates PDF in 2-3 seconds
-- **Clean output**: No browser headers, footers, or URLs
-
-### How It Works
-
-```javascript
-// The PDF generation function:
-1. Captures the resume HTML element
-2. Converts it to a high-resolution canvas using html2canvas
-3. Renders the canvas as a PDF using jsPDF
-4. Automatically handles pagination
-5. Downloads with filename "Manav_Chawla_Resume.pdf"
+# Publish to GitHub
+npm run refresh -- -p -m "Add testimonial from Jane"
 ```
 
-### Dependencies
+### Git Pre-Commit Hook
+Automatically validates manifests before every commit. If validation fails, the commit is blocked.
 
-- **html2pdf.js** (loaded from CDN): HTML to PDF conversion library
-- **html2canvas**: Used internally by html2pdf.js for rendering
-- **jsPDF**: Used internally by html2pdf.js for PDF generation
+```bash
+# To bypass validation (not recommended)
+git commit --no-verify
+```
+
+## 📝 Adding Content
+
+### Add New Experience
+1. Create new JSON file in `data/experience/` (e.g., `newcompany.json`)
+   ```json
+   {
+     "id": "newcompany",
+     "company": "Company Name",
+     "role": "Your Role",
+     "period": {
+       "start": "2024-01",
+       "end": "present",
+       "display": "January 2024 – Present"
+     },
+     "tags": ["Tech1", "Tech2"],
+     "highlights": [
+       "Achievement 1",
+       "Achievement 2"
+     ],
+     "order": 1,
+     "featured": true
+   }
+   ```
+
+2. Update `data/experience/manifest.json` files array:
+   ```json
+   {
+     "files": ["grab.json", "zetwerk.json", "dockabl.json", "newcompany.json"]
+   }
+   ```
+
+3. Update `assets/js/data-loader.js` loadExperience() method:
+   ```javascript
+   async loadExperience() {
+       const files = ['grab.json', 'zetwerk.json', 'dockabl.json', 'newcompany.json'];
+       // ...
+   }
+   ```
+
+4. Validate and publish:
+   ```bash
+   npm run refresh -- -p -m "Add new experience at Company Name"
+   ```
+
+### Add New Project
+1. Create new JSON file in `data/projects/` (e.g., `myproject.json`)
+   ```json
+   {
+     "id": "myproject",
+     "title": "Project Name",
+     "description": "Project description",
+     "tags": ["Tech1", "Tech2"],
+     "features": [
+       "Feature 1",
+       "Feature 2"
+     ],
+     "link": "",
+     "github": "",
+     "order": 3,
+     "featured": true
+   }
+   ```
+
+2. Update manifest and data-loader.js similarly to experience
+
+3. Validate and publish
+
+### Update Personal Info
+Edit `data/personal/info.json` and run:
+```bash
+npm run refresh -- -p -m "Update personal information"
+```
+
+### Add Testimonial
+Edit `data/testimonials/list.json`:
+```json
+{
+  "testimonials": [
+    {
+      "id": "testimonial-3",
+      "name": "Person Name",
+      "title": "Their Title",
+      "company": "Their Company",
+      "avatar": "",
+      "quote": "The testimonial quote here...",
+      "order": 3,
+      "featured": true
+    }
+  ]
+}
+```
+
+Then publish:
+```bash
+npm run refresh -- -p -m "Add testimonial from Person Name"
+```
+
+## 🔧 System Architecture
+
+### Data Flow
+1. User opens index.html or resume.html
+2. DataLoader class instantiated
+3. Data loaded from JSON manifests
+4. Renderer functions populate DOM dynamically
+5. CSS styles applied for display/print
+
+### Validation Flow
+1. Pre-commit hook triggers on `git commit`
+2. Validation script checks all manifests
+3. If validation passes, commit proceeds
+4. If validation fails, commit is blocked
+
+### Publishing Flow
+1. Run `/refresh` with `-p` flag
+2. Validates all manifests
+3. Stages all changes
+4. Creates commit with message
+5. Pushes to GitHub master branch
+6. GitHub Pages automatically deploys
+
+## 🌐 Live Sites
+
+- **Portfolio**: https://manavchawla3.github.io
+- **Resume**: https://manavchawla3.github.io/resume.html
+
+## 🐛 Troubleshooting
+
+### Validation Errors
+If you encounter validation errors:
+
+1. Read the error messages carefully
+2. Fix the issues in the relevant JSON files
+3. Run `npm run validate` to verify fixes
+4. If stuck, check existing files for reference
+
+### Commit Blocked
+If your commit is blocked by the pre-commit hook:
+
+1. Run `npm run validate` to see errors
+2. Fix the validation errors
+3. Try committing again
+4. If you need to bypass (emergency only): `git commit --no-verify`
+
+### Refresh Command Not Working
+Make sure scripts are executable:
+```bash
+chmod +x scripts/refresh.sh scripts/validate.js
+chmod +x .git/hooks/pre-commit
+```
+
+## 📚 Additional Documentation
+
+See [IMPLEMENTATION.md](IMPLEMENTATION.md) for detailed implementation notes.
+
+## 📄 License
+
+MIT License - feel free to use this for your own portfolio!
