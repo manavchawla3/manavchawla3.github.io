@@ -37,9 +37,11 @@ function renderExperience(experiences) {
             </div>
 
             <div class="text-slate-400 mb-4 font-medium">${job.role}</div>
-            <p class="text-slate-400 leading-relaxed mb-4 max-w-2xl">
-                ${job.highlights[0]}
-            </p>
+            <ul class="text-slate-400 leading-relaxed mb-4 max-w-2xl space-y-2 list-disc list-inside">
+                ${job.highlights.map(highlight => `
+                    <li>${highlight}</li>
+                `).join('')}
+            </ul>
 
             <div class="flex flex-wrap gap-2">
                 ${job.tags.map(tag => `
@@ -120,30 +122,131 @@ function renderProjects(projects) {
 // Render testimonials section
 function renderTestimonials(testimonials) {
     const container = document.getElementById('testimonials-grid');
+    const dotsContainer = document.getElementById('testimonial-dots');
     if (!container || !testimonials || testimonials.length === 0) return;
 
     container.innerHTML = '';
+    dotsContainer.innerHTML = '';
 
-    testimonials.forEach(testimonial => {
+    testimonials.forEach((testimonial, index) => {
         const testimonialElement = document.createElement('div');
-        testimonialElement.className = 'p-6 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all';
-        testimonialElement.innerHTML = `
-            <div class="flex items-start gap-4 mb-4">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg">
-                    ${testimonial.name.charAt(0)}
-                </div>
-                <div class="flex-1">
-                    <h4 class="font-bold text-slate-200">${testimonial.name}</h4>
-                    <p class="text-sm text-slate-400">${testimonial.title}</p>
-                    <p class="text-xs text-slate-500">${testimonial.company}</p>
-                </div>
+        testimonialElement.className = 'testimonial-card p-6 rounded-xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all';
+
+        // Profile section - make clickable if LinkedIn URL exists
+        const profileContent = `
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
+                ${testimonial.name.charAt(0)}
             </div>
+            <div class="flex-1 min-w-0">
+                <h4 class="font-bold text-slate-200 flex items-center gap-2">
+                    ${testimonial.name}
+                    ${testimonial.linkedinUrl ? `
+                        <svg class="w-4 h-4 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    ` : ''}
+                </h4>
+                <p class="text-sm text-slate-400">${testimonial.title}</p>
+                <p class="text-xs text-slate-500">${testimonial.company}</p>
+            </div>
+        `;
+
+        const profileHTML = testimonial.linkedinUrl
+            ? `<a href="${testimonial.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 mb-4 group/profile hover:opacity-80 transition-opacity">
+                ${profileContent}
+               </a>`
+            : `<div class="flex items-start gap-4 mb-4">
+                ${profileContent}
+               </div>`;
+
+        testimonialElement.innerHTML = `
+            ${profileHTML}
             <p class="text-slate-400 italic leading-relaxed">
                 "${testimonial.quote}"
             </p>
         `;
         container.appendChild(testimonialElement);
+
+        // Create dot for each testimonial
+        const dot = document.createElement('button');
+        dot.className = index === 0 ? 'active' : '';
+        dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+        dot.onclick = () => scrollToTestimonial(index);
+        dotsContainer.appendChild(dot);
     });
+
+    // Initialize scroll controls
+    initTestimonialScrollControls();
+}
+
+// Scroll controls for testimonials
+function initTestimonialScrollControls() {
+    const container = document.getElementById('testimonials-grid');
+    const leftBtn = document.getElementById('testimonial-scroll-left');
+    const rightBtn = document.getElementById('testimonial-scroll-right');
+    const dots = document.getElementById('testimonial-dots');
+
+    if (!container || !leftBtn || !rightBtn || !dots) return;
+
+    // Check if scrolling is needed (wait for layout to complete)
+    setTimeout(() => {
+        const needsScroll = container.scrollWidth > container.clientWidth + 5; // 5px tolerance
+
+        // If no scrolling needed, hide all controls
+        if (!needsScroll) {
+            leftBtn.style.display = 'none';
+            rightBtn.style.display = 'none';
+            dots.style.display = 'none';
+            return;
+        }
+
+        // Show controls if hidden
+        leftBtn.style.display = '';
+        rightBtn.style.display = '';
+        dots.style.display = '';
+
+        // Update button visibility and active dot
+        function updateScrollControls() {
+            const scrollLeft = container.scrollLeft;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+
+            // Show/hide buttons
+            leftBtn.classList.toggle('visible', scrollLeft > 10);
+            rightBtn.classList.toggle('visible', scrollLeft < maxScroll - 10);
+
+            // Update active dot
+            const cardWidth = container.querySelector('.testimonial-card')?.offsetWidth || 0;
+            const currentIndex = Math.round(scrollLeft / (cardWidth + 24)); // 24 = gap
+            dots.querySelectorAll('button').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Scroll left
+        leftBtn.onclick = () => {
+            const cardWidth = container.querySelector('.testimonial-card')?.offsetWidth || 0;
+            container.scrollBy({ left: -(cardWidth + 24), behavior: 'smooth' });
+        };
+
+        // Scroll right
+        rightBtn.onclick = () => {
+            const cardWidth = container.querySelector('.testimonial-card')?.offsetWidth || 0;
+            container.scrollBy({ left: cardWidth + 24, behavior: 'smooth' });
+        };
+
+        // Listen to scroll events
+        container.addEventListener('scroll', updateScrollControls);
+
+        // Initial update
+        updateScrollControls();
+    }, 100); // Small delay to ensure layout is complete
+}
+
+// Scroll to specific testimonial
+function scrollToTestimonial(index) {
+    const container = document.getElementById('testimonials-grid');
+    const cardWidth = container.querySelector('.testimonial-card')?.offsetWidth || 0;
+    container.scrollTo({ left: index * (cardWidth + 24), behavior: 'smooth' });
 }
 
 // Initialize portfolio

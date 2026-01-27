@@ -36,3 +36,73 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+/* Testimonials horizontal scroll */
+#testimonials-grid {
+    scrollbar-width: thin;
+    scrollbar-color: #334155 #1e293b;
+    scroll-snap-type: x mandatory;
+}
+
+#testimonials-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+#testimonials-grid::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+#testimonials-grid::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+#testimonials-grid::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+.testimonial-card {
+    min-width: 400px;
+    max-width: 500px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+
+/* Scroll buttons */
+#testimonial-scroll-left.visible,
+#testimonial-scroll-right.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Scroll indicator dots */
+#testimonial-dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #334155;
+    border: 1px solid #475569;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+#testimonial-dots button:hover {
+    background: #475569;
+    transform: scale(1.2);
+}
+
+#testimonial-dots button.active {
+    background: #06b6d4;
+    border-color: #06b6d4;
+    width: 24px;
+    border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+    .testimonial-card {
+        min-width: 300px;
+        max-width: 340px;
+    }
+}
+

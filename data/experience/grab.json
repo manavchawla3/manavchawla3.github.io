@@ -10,12 +10,10 @@
   },
   "tags": ["Golang", "Terraform", "Temporal", "n8n", "MySQL", "k8s"],
   "highlights": [
-    "Architected and implemented a centralized Graph Orchestration Platform using Temporal.io, enabling teams to define complex multi-step business workflows as DAG-based executions",
+    "Architected and implemented a centralized Graph Orchestration Platform using Temporal, enabling teams to build complex multi-step business workflows as DAG-based durable executions, improving reliability and scalability across core systems.",
     "Improved reliability of mission-critical distributed workflows by building in durable execution, retries, and state recovery, achieving 99.99% uptime for core systems",
-    "Accelerated delivery of new asynchronous workflows by 40% by abstracting failure handling and state management into a reusable orchestration SDK",
-    "Designed and delivered a scalable Configuration Management Service, migrating legacy database-driven configs to a static file + GitOps architecture",
-    "Integrated GitLab RBAC and version-controlled config management, ensuring secure audit trails, compliance, and governance across teams",
-    "Enabled atomic updates and instant rollbacks through Configuration-as-Code, reducing configuration-related incidents by 60% and achieving sub-millisecond read latency",
+    "Designed and delivered a scalable Configuration Management Service, migrating legacy database-driven configs to a GitOps-based Configuration-as-Code architecture, enabling secure RBAC governance, audit- ready compliance, and version-controlled management across teams.",
+    "Implemented atomic updates and instant rollback mechanisms, reducing configuration-related incidents by 60% while achieving sub-millisecond read latency for high-performance, reliable production systems",
     "Re-engineered high-throughput deductions logic supporting 228K+ transactions, cutting batch processing runtime by 50%+ (6 hours → 2.5 hours)",
     "Co-led the end-to-end launch of the in-house PCA ID Taralite loan product, replacing a costly third-party dependency (Julo) and optimizing ongoing operational spend"
   ],
